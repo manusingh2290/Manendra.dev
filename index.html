@@ -29,20 +29,24 @@
     }
     </script>
 
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Tailwind CDN (For dev. Compile for production to improve Performance score) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
         rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Deferred Scripts to prevent render-blocking -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
 
     <style>
         :root {
@@ -106,17 +110,9 @@
         }
 
         @keyframes border-animation {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .project-card {
@@ -158,15 +154,8 @@
         }
 
         @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .badge {
@@ -194,11 +183,7 @@
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .active-nav::after {
+        .nav-link:hover::after, .active-nav::after {
             width: 100%;
         }
 
@@ -207,17 +192,9 @@
         }
 
         @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         .terminal {
@@ -234,17 +211,9 @@
             line-height: 1.5;
         }
 
-        .terminal-prompt {
-            color: #34d399;
-        }
-
-        .terminal-command {
-            color: #f8fafc;
-        }
-
-        .terminal-output {
-            color: #94a3b8;
-        }
+        .terminal-prompt { color: #34d399; }
+        .terminal-command { color: #f8fafc; }
+        .terminal-output { color: #94a3b8; }
 
         .matrix-rain {
             position: fixed;
@@ -270,22 +239,9 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-20px);
-            }
-
-            60% {
-                transform: translateY(-10px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
         }
 
         .glassmorphism {
@@ -300,22 +256,13 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb {
             background: rgba(148, 163, 184, 0.5);
             border-radius: 4px;
         }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(148, 163, 184, 0.8);
-        }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
 
         .code-rain {
             position: absolute;
@@ -332,7 +279,6 @@
             color: rgba(96, 165, 250, 0.3);
         }
 
-        /* Added smooth transitions for the modal */
         #resume-modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
@@ -345,7 +291,6 @@
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-all duration-300">
 
     <div id="code-rain-container" class="fixed top-0 left-0 w-full h-full overflow-hidden z-0 opacity-30"></div>
-
     <div id="particles-js" class="fixed top-0 left-0 w-full h-full z-0"></div>
 
     <nav class="fixed w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-50 shadow-sm">
@@ -362,13 +307,13 @@
             </div>
 
             <div class="flex items-center space-x-4">
-                <button id="theme-toggle"
+                <button id="theme-toggle" aria-label="Toggle Dark Mode"
                     class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                     <i class="fas fa-moon dark:hidden"></i>
                     <i class="fas fa-sun hidden dark:block"></i>
                 </button>
 
-                <button id="mobile-menu-button"
+                <button id="mobile-menu-button" aria-label="Open Mobile Menu"
                     class="md:hidden p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -392,26 +337,26 @@
         <div class="container mx-auto px-4 py-16 md:py-0 relative z-10">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <div class="code-font text-sm md:text-base text-slate-500 dark:text-slate-400 mb-2">
-                        <span class="text-green-500 dark:text-green-400">$</span> <span
-                            class="text-blue-500 dark:text-blue-400">function</span> <span>introduceMyself() {</span>
+                    <div class="code-font text-sm md:text-base text-slate-600 dark:text-slate-400 mb-2">
+                        <span class="text-green-600 dark:text-green-400">$</span> <span
+                            class="text-blue-600 dark:text-blue-400">function</span> <span>introduceMyself() {</span>
                     </div>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                         Hi, I'm <span class="gradient-text">Manendra Singh</span>
                     </h1>
-                    <div class="text-xl md:text-2xl mb-6 text-slate-600 dark:text-slate-400 flex items-center">
-                        <span class="text-green-500 dark:text-green-400 mr-2">></span>
+                    <div class="text-xl md:text-2xl mb-6 text-slate-700 dark:text-slate-300 flex items-center">
+                        <span class="text-green-600 dark:text-green-400 mr-2">></span>
                         <span id="typing-text"></span><span class="typing-cursor"></span>
                     </div>
-                    <p class="text-slate-600 dark:text-slate-400 mb-4">
-Backend-focused Software Engineer with experience in building scalable and secure web applications. Skilled in designing RESTful APIs, optimizing database queries, and implementing real-time systems.
-</p>
+                    <p class="text-slate-700 dark:text-slate-300 mb-4">
+                        Backend-focused Software Engineer with experience in building scalable and secure web applications. Skilled in designing RESTful APIs, optimizing database queries, and implementing real-time systems.
+                    </p>
 
-<p class="text-slate-600 dark:text-slate-400 mb-6">
-Solved 400+ DSA problems and actively work on improving system design and backend performance. Passionate about developing high-performance applications and solving real-world engineering problems.
-</p>
+                    <p class="text-slate-700 dark:text-slate-300 mb-6">
+                        Solved 400+ DSA problems and actively work on improving system design and backend performance. Passionate about developing high-performance applications and solving real-world engineering problems.
+                    </p>
                     
-                    <div class="code-font text-sm md:text-base text-slate-500 dark:text-slate-400 mb-6">
+                    <div class="code-font text-sm md:text-base text-slate-600 dark:text-slate-400 mb-6">
                         <span>}</span>
                     </div>
                     <div class="flex flex-wrap gap-4">
@@ -420,22 +365,22 @@ Solved 400+ DSA problems and actively work on improving system design and backen
                             <i class="fas fa-paper-plane mr-2"></i> Get in Touch
                         </a>
                         <button id="view-resume-btn"
-                            class="px-6 py-3 border-2 border-blue-500 dark:border-blue-400 text-blue-500 dark:text-blue-400 font-medium rounded-full hover:bg-blue-500 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 transition-all">
+                            class="px-6 py-3 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 font-medium rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 transition-all">
                             <i class="fas fa-eye mr-2"></i> View Resume
                         </button>
 
                     </div>
                     <div class="flex mt-8 space-x-4">
-                        <a href="https://github.com/manusingh2290" target="_blank"
-                            class="text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 text-xl transition-colors">
+                        <a href="https://github.com/manusingh2290" target="_blank" aria-label="GitHub Profile"
+                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/manendrasi/" target="_blank"
-                            class="text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 text-xl transition-colors">
+                        <a href="https://www.linkedin.com/in/manendrasi/" target="_blank" aria-label="LinkedIn Profile"
+                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://leetcode.com/u/manendrasi4eb3/" target="_blank"
-                            class="text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 text-xl transition-colors">
+                        <a href="https://leetcode.com/u/manendrasi4eb3/" target="_blank" aria-label="LeetCode Profile"
+                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
                             <i class="fas fa-code"></i>
                         </a>
                     </div>
@@ -447,7 +392,8 @@ Solved 400+ DSA problems and actively work on improving system design and backen
                         </div>
                         <div
                             class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-xl mx-auto relative z-10">
-                            <img src="profile picture.jpg" alt="Profile Image" class="w-full h-full object-cover" />
+                            <!-- Added proper ALT attribute for SEO/Accessibility -->
+                            <img src="profile picture.jpg" alt="Manendra Singh - Software Developer Profile Picture" class="w-full h-full object-cover" />
                         </div>
 
                         <div class="absolute -top-10 -left-10 floating-icon" style="animation-delay: 0s;">
@@ -486,8 +432,8 @@ Solved 400+ DSA problems and actively work on improving system design and backen
 
             <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator hidden md:block">
                 <div class="flex flex-col items-center">
-                    <span class="text-sm text-slate-500 dark:text-slate-400 mb-2">Scroll Down</span>
-                    <svg class="w-6 h-6 text-slate-500 dark:text-slate-400" xmlns="http://www.w3.org/2000/svg"
+                    <span class="text-sm text-slate-600 dark:text-slate-400 mb-2">Scroll Down</span>
+                    <svg class="w-6 h-6 text-slate-600 dark:text-slate-400" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -516,20 +462,20 @@ Solved 400+ DSA problems and actively work on improving system design and backen
                             &nbsp;&nbsp;"name": "Manendra Singh",<br>
                             &nbsp;&nbsp;"education": "B.Tech in Computer Science",<br>
                             &nbsp;&nbsp;"university": "Vellore Institute of Technology",<br>
-                            &nbsp;&nbsp;"year": "Final Year",<br>
-                            &nbsp;&nbsp;"interests": ["Web Development", "Software Engineering", "AI/ML", System Design],<br>
+                            &nbsp;&nbsp;"year": "Pre-final Year",<br>
+                            &nbsp;&nbsp;"interests": ["Web Development", "Software Engineering", "AI/ML", "System Design"],<br>
                             &nbsp;&nbsp;"location": "Vellore, India"<br>
                             }
                         </span>
                     </div>
 
-                    <p class="text-slate-600 dark:text-slate-400 mb-4">
-Backend-focused Software Engineer experienced in building scalable, secure, and real-time web applications. Skilled in designing RESTful APIs, optimizing database queries, and implementing efficient backend systems.
-</p>
+                    <p class="text-slate-700 dark:text-slate-300 mb-4">
+                        Backend-focused Software Engineer experienced in building scalable, secure, and real-time web applications. Skilled in designing RESTful APIs, optimizing database queries, and implementing efficient backend systems.
+                    </p>
 
-<p class="text-slate-600 dark:text-slate-400 mb-6">
-Solved 400+ Data Structures & Algorithms problems with a strong focus on problem-solving and system design. Passionate about building high-performance applications and solving real-world engineering challenges.
-</p>
+                    <p class="text-slate-700 dark:text-slate-300 mb-6">
+                        Solved 400+ Data Structures & Algorithms problems with a strong focus on problem-solving and system design. Passionate about building high-performance applications and solving real-world engineering challenges.
+                    </p>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
@@ -556,45 +502,41 @@ Solved 400+ Data Structures & Algorithms problems with a strong focus on problem
 
                     <div class="mb-6 border-l-4 border-blue-500 pl-4">
                         <h4 class="text-xl font-medium">B.Tech in Computer Science & Engineering</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Vellore Institute of Technology | 2023 - 2027</p>
-                        <p class="text-slate-600 dark:text-slate-400">CGPA: 8.52/10</p>
+                        <p class="text-slate-700 dark:text-slate-300">Vellore Institute of Technology | 2023 - 2027</p>
+                        <p class="text-slate-700 dark:text-slate-300">CGPA: 8.52/10</p>
                     </div>
 
                     <div class="mb-6 border-l-4 border-blue-500 pl-4">
                         <h4 class="text-xl font-medium">Senior Secondary School</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Swami Keshwananda Sr. Sec. School | 2021 - 2022
+                        <p class="text-slate-700 dark:text-slate-300">Swami Keshwananda Sr. Sec. School | 2021 - 2022
                         </p>
-                        <p class="text-slate-600 dark:text-slate-400">Percentage: 91.4</p>
+                        <p class="text-slate-700 dark:text-slate-300">Percentage: 91.4</p>
                     </div>
 
                     <div class="mb-6 border-l-4 border-blue-500 pl-4">
                         <h4 class="text-xl font-medium">Secondary School</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Swami Keshwananda Sr. Sec. School | 2019 - 2020
+                        <p class="text-slate-700 dark:text-slate-300">Swami Keshwananda Sr. Sec. School | 2019 - 2020
                         </p>
-                        <p class="text-slate-600 dark:text-slate-400">Percentage: 88.33</p>
+                        <p class="text-slate-700 dark:text-slate-300">Percentage: 88.33</p>
                     </div>
 
                     <h3 class="text-2xl font-semibold mb-4">Technical Interests</h3>
-<div class="flex flex-wrap gap-2 mb-6">
-    <!-- Previous Tags -->
-    <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Backend Development</span>
-    <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">REST APIs</span>
-    <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">System Design</span>
-    <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Scalable Systems</span>
-    <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Database Optimization</span>
-    <span class="badge bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">Cloud Computing</span>
-    
-    <!-- AI / ML -->
-    <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Machine Learning</span>
-
-</div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Backend Development</span>
+                        <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">REST APIs</span>
+                        <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">System Design</span>
+                        <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Scalable Systems</span>
+                        <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Database Optimization</span>
+                        <span class="badge bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">Cloud Computing</span>
+                        <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Machine Learning</span>
+                    </div>
 
                     <h3 class="text-2xl font-semibold mb-4">What I Do</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
                             <div
                                 class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-4">
-                                <i class="fas fa-code text-blue-500 dark:text-blue-400"></i>
+                                <i class="fas fa-code text-blue-600 dark:text-blue-400"></i>
                             </div>
                             <h4 class="text-lg font-medium mb-2">Web Development</h4>
                             <p class="text-slate-600 dark:text-slate-400">Building responsive and dynamic web
@@ -604,7 +546,7 @@ Solved 400+ Data Structures & Algorithms problems with a strong focus on problem
                         <div class="p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
                             <div
                                 class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center mb-4">
-                                <i class="fas fa-laptop-code text-yellow-500 dark:text-yellow-400"></i>
+                                <i class="fas fa-laptop-code text-yellow-600 dark:text-yellow-400"></i>
                             </div>
                             <h4 class="text-lg font-medium mb-2">AI & Machine Learning</h4>
                             <p class="text-slate-600 dark:text-slate-400">
@@ -615,7 +557,7 @@ Solved 400+ Data Structures & Algorithms problems with a strong focus on problem
                         <div class="p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
                             <div
                                 class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4">
-                                <i class="fas fa-server text-green-500 dark:text-green-400"></i>
+                                <i class="fas fa-server text-green-600 dark:text-green-400"></i>
                             </div>
                             <h4 class="text-lg font-medium mb-2">Backend Development</h4>
                             <p class="text-slate-600 dark:text-slate-400">Designing and implementing RESTful APIs and
@@ -632,29 +574,28 @@ Solved 400+ Data Structures & Algorithms problems with a strong focus on problem
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-                <p class="mt-4 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
                     Here are some of my recent projects that showcase my technical skills and problem-solving abilities.
                 </p>
             </div>
 
             <div class="mb-8">
                 <div class="flex flex-wrap justify-center gap-4">
-                    <button class="project-filter-btn active px-4 py-2 rounded-full bg-blue-500 text-white"
+                    <button class="project-filter-btn active px-4 py-2 rounded-full bg-blue-600 text-white"
                         data-filter="all">All Projects</button>
                     <button
-                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-500 hover:text-white transition-colors"
+                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-600 hover:text-white transition-colors"
                         data-filter="frontend">Frontend</button>
                     <button
-                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-500 hover:text-white transition-colors"
+                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-600 hover:text-white transition-colors"
                         data-filter="fullstack">Full-Stack</button>
                     <button
-                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-500 hover:text-white transition-colors"
+                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-600 hover:text-white transition-colors"
                         data-filter="aiml">AI/ML</button>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
 
                 <!-- Project: SCSMS-->
                 <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="fullstack">
@@ -671,47 +612,31 @@ Solved 400+ Data Structures & Algorithms problems with a strong focus on problem
                     </div>
 
                     <div class="p-6">
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-Built a scalable real-time smart city platform enabling citizens to report issues and administrators to manage tasks efficiently. Reduced issue reporting latency by 40% using Socket.IO and implemented secure role-based access control (RBAC) for data integrity.
-</p>
+                        <p class="text-slate-700 dark:text-slate-300 mb-4">
+                            Built a scalable real-time smart city platform enabling citizens to report issues and administrators to manage tasks efficiently. Reduced issue reporting latency by 40% using Socket.IO and implemented secure role-based access control (RBAC) for data integrity.
+                        </p>
 
                         <div class="flex flex-wrap mb-4">
-                            <span class="badge bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">
-                                HTML & CSS
-                            </span>
-                            <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-                                JavaScript
-                            </span>
-                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                Node.js
-                            </span>
-                            <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
-                Express.js
-                            </span>
-                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                MySQL
-                            </span>
-                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                Socket.IO
-                            </span>
+                            <span class="badge bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">HTML & CSS</span>
+                            <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">JavaScript</span>
+                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Node.js</span>
+                            <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Express.js</span>
+                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">MySQL</span>
+                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Socket.IO</span>
                         </div>
 
                         <div class="flex justify-between">
                             <a href="https://github.com/manusingh2290/SCSMS-new" target="_blank"
-                class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
+                class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
                                 <i class="fab fa-github mr-1"></i> GitHub
                             </a>
-
                             <a href="https://manusingh2290.github.io/SCSMS-new/" target="_blank"
-                class="text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
+                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
                                 <i class="fas fa-external-link-alt mr-1"></i> Live Demo
                             </a>
                         </div>
                     </div>
                 </div>
-
-                
-
 
                 <!-- Project - DR -->
                 <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="aiml">
@@ -726,7 +651,7 @@ Built a scalable real-time smart city platform enabling citizens to report issue
                     </div>
 
                     <div class="p-6">
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
+                        <p class="text-slate-700 dark:text-slate-300 mb-4">
                             An AI-powered deep learning model that detects Diabetic Retinopathy using retinal fundus images.
                             Built using CNN-based image classification to assist early diagnosis and reduce vision loss risk.
                         </p>
@@ -739,20 +664,16 @@ Built a scalable real-time smart city platform enabling citizens to report issue
                         </div>
 
                         <div class="flex justify-between">
-                            <a href="https://github.com/manusingh2290/Diabetic-Retinopathy" target="_blank" class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
+                            <a href="https://github.com/manusingh2290/Diabetic-Retinopathy" target="_blank" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
                                 <i class="fab fa-github mr-1"></i> GitHub
                             </a>
                             <a href="https://diabetic-retinopathy-detector-manendrasingh.streamlit.app/" target="_blank"
-                                class="text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
+                                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
                                 <i class="fas fa-external-link-alt mr-1"></i> Live Demo
                             </a>
                         </div>
                     </div>
                 </div>
-
-
-                
-
 
                 <!-- Project Stack IT -->
                 <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="fullstack">
@@ -767,26 +688,22 @@ Built a scalable real-time smart city platform enabling citizens to report issue
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-Developed a scalable MERN-based discussion platform with secure authentication and dynamic content ranking. Implemented RESTful APIs and optimized database queries to improve performance and ensure efficient data retrieval.
-</p>
+                        <p class="text-slate-700 dark:text-slate-300 mb-4">
+                            Developed a scalable MERN-based discussion platform with secure authentication and dynamic content ranking. Implemented RESTful APIs and optimized database queries to improve performance and ensure efficient data retrieval.
+                        </p>
                         <div class="flex flex-wrap mb-4">
-                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">HTML 5 &
-                                CSS 3
-                            </span>
-                            <span
-                                class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Node.js</span>
-                            <span
-                                class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">MongoDB</span>
+                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">HTML 5 & CSS 3</span>
+                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Node.js</span>
+                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">MongoDB</span>
                             <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Express</span>
                         </div>
                         <div class="flex justify-between">
                             <a href="https://github.com/manusingh2290/Stack-IT" target="_blank"
-                                class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
+                                class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
                                 <i class="fab fa-github mr-1"></i> GitHub
                             </a>
                             <a href="https://stack-it-dgbn.onrender.com/" target="_blank"
-                                class="text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
+                                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
                                 <i class="fas fa-external-link-alt mr-1"></i> Live Demo
                             </a>
                         </div>
@@ -806,35 +723,29 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
+                        <p class="text-slate-700 dark:text-slate-300 mb-4">
                             A responsive blog platform with authentication, media posts, category filters, and real-time
                             content updates.
                         </p>
                         <div class="flex flex-wrap mb-4">
-                            <span
-                                class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">HTML</span>
-                            <span
-                                class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">CSS</span>
-                            <span
-                                class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Firebase</span>
-                            <span
-                                class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">JavaScript</span>
-                            <span
-                                class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Firestore</span>
+                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">HTML</span>
+                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">CSS</span>
+                            <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Firebase</span>
+                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">JavaScript</span>
+                            <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Firestore</span>
                         </div>
                         <div class="flex justify-between">
                             <a href="https://github.com/manusingh2290/kn" target="_blank"
-                                class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
+                                class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
                                 <i class="fab fa-github mr-1"></i> GitHub
                             </a>
                             <a href="https://manusingh2290.github.io/kn/" target="_blank"
-                                class="text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
+                                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
                                 <i class="fas fa-external-link-alt mr-1"></i> Live Demo
                             </a>
                         </div>
                     </div>
                 </div>
-
 
                 <!-- Project 2 -->
                 <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="frontend">
@@ -849,7 +760,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                     </div>
 
                     <div class="p-6">
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
+                        <p class="text-slate-700 dark:text-slate-300 mb-4">
                             A service provider platform delivering home services like electrician, plumbing, and cleaning directly at the user's doorstep.
                         </p>
 
@@ -860,17 +771,16 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                         </div>
 
                         <div class="flex justify-between">
-                            <a href="https://github.com/manusingh2290/HomeServer" target="_blank" class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
+                            <a href="https://github.com/manusingh2290/HomeServer" target="_blank" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
                                 <i class="fab fa-github mr-1"></i> GitHub
                             </a>
-                            <a href="https://manusingh2290.github.io/HomeServer/" target="_blank" class="text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
+                            <a href="https://manusingh2290.github.io/HomeServer/" target="_blank" class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
                                 <i class="fas fa-external-link-alt mr-1"></i> Live Demo
                             </a>
                         </div>
                     </div>
                 </div>
                 
-
                 <!-- Project 5 -->
                 <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="frontend">
                     <div class="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center relative overflow-hidden">
@@ -884,7 +794,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                     </div>
 
                     <div class="p-6">
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
+                        <p class="text-slate-700 dark:text-slate-300 mb-4">
                             A responsive web-based expense tracker that allows users to add, view, filter, and manage expenses.
                             Includes tracking by Party Name and Date Range, along with Excel export functionality for detailed reporting.
                         </p>
@@ -898,21 +808,18 @@ Developed a scalable MERN-based discussion platform with secure authentication a
 
                         <div class="flex justify-between">
                             <a href="https://github.com/manusingh2290/ledger" target="_blank"
-                                class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
+                                class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
                                 <i class="fab fa-github mr-1"></i> GitHub
                             </a>
-                
                             <a href="https://manusingh2290.github.io/ledger/" target="_blank"
-                                class="text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
+                                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
                                 <i class="fas fa-external-link-alt mr-1"></i> Live Demo
                             </a>
                         </div>
                     </div>
                 </div>
 
-
             </div>
-        </div>
         </div>
     </section>
 
@@ -921,7 +828,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-                <p class="mt-4 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
                     Here are the technologies and tools I've worked with and my proficiency level in each.
                 </p>
             </div>
@@ -1177,52 +1084,40 @@ Developed a scalable MERN-based discussion platform with secure authentication a
             <div class="mt-16">
                 <h3 class="text-2xl font-semibold mb-8 text-center">Technologies I Work With</h3>
                 <div class="flex flex-wrap justify-center gap-6">
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fab fa-react text-blue-500 text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fab fa-node-js text-green-500 text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fab fa-js text-yellow-500 text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fab fa-html5 text-orange-500 text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fab fa-css3-alt text-blue-500 text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fab fa-github text-slate-800 dark:text-white text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fab fa-aws text-orange-500 text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fab fa-python text-blue-500 text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fab fa-java text-red-500 text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="fas fa-database text-blue-600 text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="devicon-c-plain colored text-3xl"></i>
                     </div>
-                    <div
-                        class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
+                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
                         <i class="devicon-cplusplus-plain colored text-3xl"></i>
                     </div>
                 </div>
@@ -1237,7 +1132,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Experience & Certifications</h2>
             <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-            <p class="mt-4 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
                 My professional experience, internships, and certifications in the tech industry.
             </p>
         </div>
@@ -1269,8 +1164,8 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <span>2026</span>
                         </div>
                         <a href="https://courses.ibmcep.cognitiveclass.ai/certificates/741bb7fdd9b6403eb9670245beceb09b"
-                           target="_blank"
-                           class="text-sm text-blue-500 hover:text-blue-700 font-medium inline-block mt-2">
+                           target="_blank" aria-label="View IBM Certificate"
+                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
                             <i class="fas fa-external-link-alt mr-1"></i> View Certificate
                         </a>
                     </div>
@@ -1280,7 +1175,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
                                 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200716222246/Path-219.png"
-                                     class="w-12 h-12 rounded-full" />
+                                     alt="GeeksforGeeks Certification Logo" loading="lazy" class="w-12 h-12 rounded-full object-cover" />
                             </div>
                             <h4 class="text-xl font-bold">Complete Machine Learning & Data Science</h4>
                         </div>
@@ -1292,8 +1187,8 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <span>GeeksforGeeks</span>
                             <span>2026</span>
                         </div>
-                        <a href="Data Science Certificate.pdf" target="_blank"
-                           class="text-sm text-blue-500 hover:text-blue-700 font-medium inline-block mt-2">
+                        <a href="Data Science Certificate.pdf" target="_blank" aria-label="View Data Science Certificate"
+                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
                             <i class="fas fa-external-link-alt mr-1"></i> View Certificate
                         </a>
                     </div>
@@ -1302,7 +1197,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                     <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                                <img src="https://repository-images.githubusercontent.com/389729275/371ba38b-8a03-4bff-916c-c3fa5396ceda" alt="Adobe Hackathon Icon" class="w-12 h-12 rounded-full">
+                                <img src="https://repository-images.githubusercontent.com/389729275/371ba38b-8a03-4bff-916c-c3fa5396ceda" alt="Salesforce AgentForce Icon" loading="lazy" class="w-12 h-12 rounded-full object-cover">
                             </div>
                             <h4 class="text-xl font-bold">AI Agent Workshop (AgentForce)</h4>
                         </div>
@@ -1314,17 +1209,17 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <span>June 2025</span>
                         </div>
                         <a href="https://media.geeksforgeeks.org/auth-certificates/1751999400/a3d656aebeca07531432131db475b652.png"
-                           target="_blank"
-                           class="text-sm text-blue-500 hover:text-blue-700 font-medium inline-block mt-2">
+                           target="_blank" aria-label="View AgentForce Workshop Certificate"
+                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
                             <i class="fas fa-external-link-alt mr-1"></i> View Certificate
                         </a>
                     </div>
 
-                    <!-- Certification: AI Agent Workshop -->
+                    <!-- Certification: AI Agent Workshop Duplicate? -->
                     <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                                <img src="https://repository-images.githubusercontent.com/389729275/371ba38b-8a03-4bff-916c-c3fa5396ceda" alt="Adobe Hackathon Icon" class="w-12 h-12 rounded-full">
+                                <img src="https://repository-images.githubusercontent.com/389729275/371ba38b-8a03-4bff-916c-c3fa5396ceda" alt="Salesforce Certification Logo" loading="lazy" class="w-12 h-12 rounded-full object-cover">
                             </div>
                             <h4 class="text-xl font-bold">AI Agent Workshop using AgentForce</h4>
                         </div>
@@ -1333,11 +1228,11 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                                     and Salesforce. Earned a Certificate of Participation for successfully
                                     creating an AI Agent using Agentforce.
                             </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-500 dark:text-slate-400">GeeksforGeeks &amp; Salesforce</span>
-                            <span class="text-sm text-slate-500 dark:text-slate-400">July 2025</span>
+                        <div class="flex justify-between items-center text-sm text-slate-500">
+                            <span>GeeksforGeeks &amp; Salesforce</span>
+                            <span>July 2025</span>
                         </div>
-                        <a href="https://media.geeksforgeeks.org/certificates/1755860021/e29ac75f1ff0c1280e5f030b6a09f75d.pdf" target="_blank" class="text-sm text-blue-500 hover:text-blue-700 font-medium mb-4 inline-block">
+                        <a href="https://media.geeksforgeeks.org/certificates/1755860021/e29ac75f1ff0c1280e5f030b6a09f75d.pdf" target="_blank" aria-label="View Second AgentForce Certificate" class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
                             <i class="fas fa-external-link-alt mr-1"></i> View Certificate
                         </a>
                     </div>
@@ -1347,7 +1242,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6f6MuOPF2v6Dmf7KjXLWtuChJpleq0f-sMA&s"
-                                     class="w-12 h-12 rounded-full" />
+                                     alt="Adobe Certification Logo" loading="lazy" class="w-12 h-12 rounded-full object-cover" />
                             </div>
                             <h4 class="text-xl font-bold">Adobe India Hackathon</h4>
                         </div>
@@ -1359,8 +1254,8 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <span>July 2025</span>
                         </div>
                         <a href="https://d2c-cdn-mumbai.s3.ap-south-1.amazonaws.com/lambda-pdfs/certificate-images/b66ee059-8ea4-4bd1-815a-579afa190c2a.pdf"
-                           target="_blank"
-                           class="text-sm text-blue-500 hover:text-blue-700 font-medium inline-block mt-2">
+                           target="_blank" aria-label="View Adobe Hackathon Certificate"
+                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
                             <i class="fas fa-external-link-alt mr-1"></i> View Certificate
                         </a>
                     </div>
@@ -1369,7 +1264,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                     <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                                <i class="fab fa-google text-green-500 text-xl"></i>
+                                <i class="fab fa-google text-green-600 text-xl"></i>
                             </div>
                             <h4 class="text-xl font-bold">Google Cloud Agentic AI Day</h4>
                         </div>
@@ -1381,8 +1276,8 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <span>July 2025</span>
                         </div>
                         <a href="https://certificate.hack2skill.com/user/aidayideasubmission/2025H2S06AID-I22623"
-                           target="_blank"
-                           class="text-sm text-blue-500 hover:text-blue-700 font-medium inline-block mt-2">
+                           target="_blank" aria-label="View Google Cloud Certificate"
+                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
                             <i class="fas fa-external-link-alt mr-1"></i> View Certificate
                         </a>
                     </div>
@@ -1409,8 +1304,8 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <span>LeetCode</span>
                             <span>2025</span>
                         </div>
-                        <a href="50.png" target="_blank"
-                           class="text-sm text-blue-500 hover:text-blue-700 font-medium inline-block mt-2">
+                        <a href="50.png" target="_blank" aria-label="View Leetcode 50 Days Badge"
+                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
                             <i class="fas fa-external-link-alt mr-1"></i> View Badge
                         </a>
                     </div>
@@ -1425,8 +1320,8 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <span>LeetCode</span>
                             <span>2025</span>
                         </div>
-                        <a href="100.png" target="_blank"
-                           class="text-sm text-blue-500 hover:text-blue-700 font-medium inline-block mt-2">
+                        <a href="100.png" target="_blank" aria-label="View Leetcode 100 Days Badge"
+                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
                             <i class="fas fa-external-link-alt mr-1"></i> View Badge
                         </a>
                     </div>
@@ -1441,8 +1336,8 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <span>LeetCode</span>
                             <span>2025</span>
                         </div>
-                        <a href="200.png" target="_blank"
-                           class="text-sm text-blue-500 hover:text-blue-700 font-medium inline-block mt-2">
+                        <a href="200.png" target="_blank" aria-label="View Leetcode 200 Days Badge"
+                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
                             <i class="fas fa-external-link-alt mr-1"></i> View Badge
                         </a>
                     </div>
@@ -1459,7 +1354,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-                <p class="mt-4 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
                     Feel free to reach out for collaborations, internship opportunities, or just to say hello!
                 </p>
             </div>
@@ -1473,7 +1368,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <div class="flex items-start">
                                 <div
                                     class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-envelope text-blue-500 dark:text-blue-400"></i>
+                                    <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-medium mb-1">Personal Email</h4>
@@ -1485,7 +1380,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <div class="flex items-start">
                                 <div
                                     class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-envelope text-blue-500 dark:text-blue-400"></i>
+                                    <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-medium mb-1">Secondary Email</h4>
@@ -1497,7 +1392,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <div class="flex items-start">
                                 <div
                                     class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-envelope text-blue-500 dark:text-blue-400"></i>
+                                    <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-medium mb-1">University Email</h4>
@@ -1509,7 +1404,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <div class="flex items-start">
                                 <div
                                     class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-phone-alt text-yellow-500 dark:text-yellow-400"></i>
+                                    <i class="fas fa-phone-alt text-yellow-600 dark:text-yellow-400"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-medium mb-1">Phone</h4>
@@ -1522,7 +1417,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <div class="flex items-start">
                                 <div
                                     class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-map-marker-alt text-green-500 dark:text-green-400"></i>
+                                    <i class="fas fa-map-marker-alt text-green-600 dark:text-green-400"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-medium mb-1">Location</h4>
@@ -1533,21 +1428,21 @@ Developed a scalable MERN-based discussion platform with secure authentication a
                             <div class="flex items-start">
                                 <div
                                     class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-link text-purple-500 dark:text-purple-400"></i>
+                                    <i class="fas fa-link text-purple-600 dark:text-purple-400"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-medium mb-1">Social Media</h4>
                                     <div class="flex space-x-4 mt-2">
-                                        <a href="https://github.com/manusingh2290" target="_blank"
-                                            class="text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 text-xl transition-colors">
+                                        <a href="https://github.com/manusingh2290" target="_blank" aria-label="GitHub Profile"
+                                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
                                             <i class="fab fa-github"></i>
                                         </a>
-                                        <a href="https://www.linkedin.com/in/manendrasi" target="_blank"
-                                            class="text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 text-xl transition-colors">
+                                        <a href="https://www.linkedin.com/in/manendrasi" target="_blank" aria-label="LinkedIn Profile"
+                                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
                                             <i class="fab fa-linkedin"></i>
                                         </a>
-                                        <a href="https://leetcode.com/u/manendrasi4eb3/" target="_blank"
-                                            class="text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 text-xl transition-colors">
+                                        <a href="https://leetcode.com/u/manendrasi4eb3/" target="_blank" aria-label="LeetCode Profile"
+                                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
                                             <i class="fas fa-code"></i>
                                         </a>
                                     </div>
@@ -1619,26 +1514,24 @@ Developed a scalable MERN-based discussion platform with secure authentication a
         </div>
     </section>
 
-    <!-- FOOTER: Added "relative z-10" so it isn't blocked by the background layers -->
     <footer class="bg-slate-900 text-white py-10 relative z-10">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <!-- Made Manendra.dev clickable to hard refresh the page -->
                     <a href="#" onclick="window.location.reload(true); return false;" class="text-2xl font-bold gradient-text code-font cursor-pointer inline-block hover:opacity-80 transition-opacity">Manendra.dev</a>
                     <p class="text-slate-400 mt-2">Full-Stack Developer & Software Engineer</p>
                 </div>
 
                 <div class="flex space-x-6">
-                    <a href="https://github.com/manusingh2290" target="_blank"
+                    <a href="https://github.com/manusingh2290" target="_blank" aria-label="GitHub Profile"
                         class="text-slate-400 hover:text-white transition-colors">
                         <i class="fab fa-github text-xl"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/manendrasi/" target="_blank"
+                    <a href="https://www.linkedin.com/in/manendrasi/" target="_blank" aria-label="LinkedIn Profile"
                         class="text-slate-400 hover:text-white transition-colors">
                         <i class="fab fa-linkedin text-xl"></i>
                     </a>
-                    <a href="https://leetcode.com/u/manendrasi4eb3/" target="_blank"
+                    <a href="https://leetcode.com/u/manendrasi4eb3/" target="_blank" aria-label="LeetCode Profile"
                         class="text-slate-400 hover:text-white transition-colors">
                         <i class="fas fa-code text-xl"></i>
                     </a>
@@ -1660,8 +1553,8 @@ Developed a scalable MERN-based discussion platform with secure authentication a
         </div>
     </footer>
 
-    <button id="back-to-top"
-        class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg transform transition-transform hover:scale-110 opacity-0 invisible z-50">
+    <button id="back-to-top" aria-label="Back to top"
+        class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg transform transition-transform hover:scale-110 opacity-0 invisible z-50">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
@@ -1673,7 +1566,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
             <!-- Modal Header -->
             <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
                 <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200">Resume</h3>
-                <button id="close-modal" class="text-slate-500 hover:text-red-500 transition-colors">
+                <button id="close-modal" aria-label="Close Resume Modal" class="text-slate-500 hover:text-red-500 transition-colors">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
             </div>
@@ -1715,24 +1608,22 @@ Developed a scalable MERN-based discussion platform with secure authentication a
             resumeModal.classList.remove('hidden');
             resumeModal.classList.add('flex'); // Add flex dynamically so it centers properly
             
-            // Slight delay allows CSS transitions to run
             setTimeout(() => {
                 resumeModal.classList.remove('opacity-0');
                 resumeModal.querySelector('div').classList.remove('scale-95');
                 resumeModal.querySelector('div').classList.add('scale-100');
             }, 10);
-            document.body.style.overflow = 'hidden'; // Stop background scrolling
+            document.body.style.overflow = 'hidden'; 
         };
 
         const closeResumeModal = () => {
             resumeModal.classList.add('opacity-0');
             resumeModal.querySelector('div').classList.remove('scale-100');
             resumeModal.querySelector('div').classList.add('scale-95');
-            // Wait for transition before fully hiding
             setTimeout(() => {
                 resumeModal.classList.remove('flex');
                 resumeModal.classList.add('hidden');
-                document.body.style.overflow = ''; // Restore background scrolling
+                document.body.style.overflow = ''; 
             }, 300);
         };
 
@@ -1743,14 +1634,12 @@ Developed a scalable MERN-based discussion platform with secure authentication a
 
         closeModalBtn.addEventListener('click', closeResumeModal);
 
-        // Close on outside click
         resumeModal.addEventListener('click', (e) => {
             if (e.target === resumeModal) {
                 closeResumeModal();
             }
         });
 
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !resumeModal.classList.contains('hidden')) {
                 closeResumeModal();
@@ -1759,12 +1648,12 @@ Developed a scalable MERN-based discussion platform with secure authentication a
 
         const typingText = document.getElementById('typing-text');
         const phrases = [
-    'Backend Developer',
-    'Software Engineer',
-    'Node.js Developer',
-    'DSA Problem Solver (400+)',
-    'Full-Stack Developer'
-];
+            'Backend Developer',
+            'Software Engineer',
+            'Node.js Developer',
+            'DSA Problem Solver (400+)',
+            'Full-Stack Developer'
+        ];
 
         let phraseIndex = 0;
         let charIndex = 0;
@@ -1804,11 +1693,11 @@ Developed a scalable MERN-based discussion platform with secure authentication a
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 filterButtons.forEach(btn => {
-                    btn.classList.remove('active', 'bg-blue-500', 'text-white');
+                    btn.classList.remove('active', 'bg-blue-600', 'text-white');
                     btn.classList.add('bg-slate-200', 'dark:bg-slate-700');
                 });
 
-                button.classList.add('active', 'bg-blue-500', 'text-white');
+                button.classList.add('active', 'bg-blue-600', 'text-white');
                 button.classList.remove('bg-slate-200', 'dark:bg-slate-700');
 
                 const filter = button.getAttribute('data-filter');
@@ -2075,25 +1964,24 @@ Developed a scalable MERN-based discussion platform with secure authentication a
         });
     </script>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
     <script>
-        emailjs.init("_1yGajPOlYNgWGKZF");
+        document.addEventListener('DOMContentLoaded', () => {
+            emailjs.init("_1yGajPOlYNgWGKZF");
 
-        document.getElementById("contact-form").addEventListener("submit", function (e) {
-            e.preventDefault();
-            emailjs.sendForm('service_zaxd89i', 'template_i6lbr3n', this)
-                .then(() => {
-                    alert("✅ Message sent!");
-                    this.reset();
-                })
-                .catch((error) => {
-                    alert("❌ Failed to send message.");
-                    console.error("EmailJS error:", error);
-                });
+            document.getElementById("contact-form").addEventListener("submit", function (e) {
+                e.preventDefault();
+                emailjs.sendForm('service_zaxd89i', 'template_i6lbr3n', this)
+                    .then(() => {
+                        alert("✅ Message sent!");
+                        this.reset();
+                    })
+                    .catch((error) => {
+                        alert("❌ Failed to send message.");
+                        console.error("EmailJS error:", error);
+                    });
+            });
         });
     </script>
-
 </body>
-
 </html>
