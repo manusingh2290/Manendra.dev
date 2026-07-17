@@ -331,6 +331,14 @@
         .dark .code-rain {
             color: rgba(96, 165, 250, 0.3);
         }
+
+        /* Added smooth transitions for the modal */
+        #resume-modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #resume-modal > div {
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 
@@ -411,10 +419,10 @@ Solved 400+ DSA problems and actively work on improving system design and backen
                             class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium rounded-full hover:shadow-lg transition-all">
                             <i class="fas fa-paper-plane mr-2"></i> Get in Touch
                         </a>
-                        <a href="manendra resume.pdf" id="view-resume"
+                        <button id="view-resume-btn"
                             class="px-6 py-3 border-2 border-blue-500 dark:border-blue-400 text-blue-500 dark:text-blue-400 font-medium rounded-full hover:bg-blue-500 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 transition-all">
                             <i class="fas fa-eye mr-2"></i> See Resume
-                        </a>
+                        </button>
 
                     </div>
                     <div class="flex mt-8 space-x-4">
@@ -642,9 +650,6 @@ Solved 400+ Data Structures & Algorithms problems with a strong focus on problem
                     <button
                         class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-500 hover:text-white transition-colors"
                         data-filter="aiml">AI/ML</button>
-                    <!-- <button
-                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-500 hover:text-white transition-colors"
-                        data-filter="mobile">Mobile</button> -->
                 </div>
             </div>
 
@@ -1660,6 +1665,24 @@ Developed a scalable MERN-based discussion platform with secure authentication a
         </svg>
     </button>
 
+    <!-- HTML for Resume Modal Overlay -->
+    <div id="resume-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity opacity-0">
+        <div class="relative w-11/12 max-w-4xl h-[90vh] bg-white dark:bg-slate-900 rounded-xl shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
+                <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200">Resume</h3>
+                <button id="close-modal" class="text-slate-500 hover:text-red-500 transition-colors">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <!-- Modal Body (PDF Viewer) -->
+            <div class="flex-1 w-full h-full p-2 bg-slate-100 dark:bg-slate-900">
+                <!-- Added toolbar=0 to try hiding the browser's default PDF viewer controls if preferred -->
+                <iframe src="manendra resume.pdf#toolbar=0" class="w-full h-full rounded border-0" title="Resume PDF"></iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
         const themeToggle = document.getElementById('theme-toggle');
 
@@ -1680,6 +1703,54 @@ Developed a scalable MERN-based discussion platform with secure authentication a
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
+        });
+
+        // Resume Modal Logic
+        const viewResumeBtn = document.getElementById('view-resume-btn');
+        const resumeModal = document.getElementById('resume-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        const openResumeModal = () => {
+            resumeModal.classList.remove('hidden');
+            // Slight delay allows CSS transitions to run
+            setTimeout(() => {
+                resumeModal.classList.remove('opacity-0');
+                resumeModal.querySelector('div').classList.remove('scale-95');
+                resumeModal.querySelector('div').classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        };
+
+        const closeResumeModal = () => {
+            resumeModal.classList.add('opacity-0');
+            resumeModal.querySelector('div').classList.remove('scale-100');
+            resumeModal.querySelector('div').classList.add('scale-95');
+            // Wait for transition before fully hiding
+            setTimeout(() => {
+                resumeModal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore background scrolling
+            }, 300);
+        };
+
+        viewResumeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openResumeModal();
+        });
+
+        closeModalBtn.addEventListener('click', closeResumeModal);
+
+        // Close on outside click
+        resumeModal.addEventListener('click', (e) => {
+            if (e.target === resumeModal) {
+                closeResumeModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !resumeModal.classList.contains('hidden')) {
+                closeResumeModal();
+            }
         });
 
         const typingText = document.getElementById('typing-text');
