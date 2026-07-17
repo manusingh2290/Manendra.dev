@@ -1619,11 +1619,13 @@ Developed a scalable MERN-based discussion platform with secure authentication a
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-white py-10">
+    <!-- FOOTER: Added "relative z-10" so it isn't blocked by the background layers -->
+    <footer class="bg-slate-900 text-white py-10 relative z-10">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <h2 class="text-2xl font-bold gradient-text code-font">Manendra.dev</h2>
+                    <!-- Made Manendra.dev clickable to hard refresh the page -->
+                    <a href="#" onclick="window.location.reload(true); return false;" class="text-2xl font-bold gradient-text code-font cursor-pointer inline-block hover:opacity-80 transition-opacity">Manendra.dev</a>
                     <p class="text-slate-400 mt-2">Full-Stack Developer & Software Engineer</p>
                 </div>
 
@@ -1677,7 +1679,6 @@ Developed a scalable MERN-based discussion platform with secure authentication a
             </div>
             <!-- Modal Body (PDF Viewer) -->
             <div class="flex-1 w-full h-full p-2 bg-slate-100 dark:bg-slate-900">
-                <!-- Added toolbar=0 to try hiding the browser's default PDF viewer controls if preferred -->
                 <iframe src="manendra resume.pdf#toolbar=0" class="w-full h-full rounded border-0" title="Resume PDF"></iframe>
             </div>
         </div>
@@ -1712,6 +1713,8 @@ Developed a scalable MERN-based discussion platform with secure authentication a
 
         const openResumeModal = () => {
             resumeModal.classList.remove('hidden');
+            resumeModal.classList.add('flex'); // Add flex dynamically so it centers properly
+            
             // Slight delay allows CSS transitions to run
             setTimeout(() => {
                 resumeModal.classList.remove('opacity-0');
@@ -1727,6 +1730,7 @@ Developed a scalable MERN-based discussion platform with secure authentication a
             resumeModal.querySelector('div').classList.add('scale-95');
             // Wait for transition before fully hiding
             setTimeout(() => {
+                resumeModal.classList.remove('flex');
                 resumeModal.classList.add('hidden');
                 document.body.style.overflow = ''; // Restore background scrolling
             }, 300);
