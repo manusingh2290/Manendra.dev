@@ -1,1987 +1,317 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manendra Singh | Software Developer & Full-Stack Engineer</title>
-    <meta name="description"
-    content="Portfolio of Manendra Singh, Backend-focused Software Engineer specializing in scalable systems, Node.js, REST APIs, and full-stack development.">
-    <meta name="keywords"
-        content="software developer, full-stack developer, React.js, Node.js, portfolio, CSE student, web development">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Person",
-      "name": "Manendra Singh",
-      "url": "https://manendrasingh.dev",
-      "image": "",
-      "jobTitle": "Software Engineer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Computer Science Engineering Department"
-      },
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Vellore Institute of Technology"
-      },
-      "knowsAbout": ["Full-Stack Development", "React.js", "Node.js", "JavaScript", "MongoDB", "Express.js", "RESTful APIs", "Git"]
-    }
-    </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manendra Singh · Backend-leaning full-stack developer</title>
+<meta name="description" content="Manendra Singh, final-year CSE student at VIT Vellore. I build Node.js, Express, MongoDB and MySQL apps with real-time features, plus ML projects in TensorFlow.">
+<meta name="keywords" content="Manendra Singh, backend developer, full-stack developer, Node.js, Express, MongoDB, MySQL, Socket.IO, TensorFlow, VIT Vellore, portfolio">
+<meta name="author" content="Manendra Singh">
+<meta name="theme-color" content="#F5F1E8">
+<link rel="canonical" href="https://manusingh2290.github.io/Manendra.dev/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F5F1E8'/%3E%3Cpath d='M6 25V7h3.4l6.6 10.2L22.600 7H26v18h-3.400V13.200l-5.900 9h-1.400l-5.900-9V25z' fill='%23A8442A'/%3E%3C/svg%3E">
 
-    <!-- Preconnect for faster font loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Manendra Singh">
+<meta property="og:title" content="Manendra Singh · Backend-leaning full-stack developer">
+<meta property="og:description" content="Node.js, Express, MongoDB and MySQL apps with real-time features, plus ML projects. Final-year CSE at VIT Vellore.">
+<meta property="og:url" content="https://manusingh2290.github.io/Manendra.dev/">
+<meta property="og:image" content="https://manusingh2290.github.io/Manendra.dev/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Manendra Singh, backend-leaning full-stack developer. Portfolio.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Manendra Singh · Backend-leaning full-stack developer">
+<meta name="twitter:description" content="Node.js, Express, MongoDB and MySQL apps with real-time features, plus ML projects.">
+<meta name="twitter:image" content="https://manusingh2290.github.io/Manendra.dev/assets/og.png">
+<meta name="twitter:image:alt" content="Manendra Singh, backend-leaning full-stack developer. Portfolio.">
 
-    <!-- Tailwind CDN (For dev. Compile for production to improve Performance score) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap"></noscript>
+<script>document.documentElement.className += ' js';</script>
+<link rel="stylesheet" href="styles.css">
+<script src="main.js" defer></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
-        rel="stylesheet">
-
-    <!-- Deferred Scripts to prevent render-blocking -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-
-    <style>
-        :root {
-            --primary: #3b82f6;
-            --secondary: #10b981;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --accent: #8b5cf6;
-        }
-
-        .dark {
-            --primary: #60a5fa;
-            --secondary: #34d399;
-            --dark: #f8fafc;
-            --light: #0f172a;
-            --accent: #a78bfa;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            overflow-x: hidden;
-        }
-
-        .code-font {
-            font-family: 'Fira Code', monospace;
-        }
-
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gradient-border {
-            position: relative;
-            border-radius: 0.5rem;
-        }
-
-        .gradient-border::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
-            z-index: -1;
-            border-radius: 0.6rem;
-            animation: border-animation 3s linear infinite;
-        }
-
-        @keyframes border-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-progress {
-            height: 8px;
-            border-radius: 4px;
-            background: rgba(226, 232, 240, 0.3);
-            overflow: hidden;
-        }
-
-        .skill-progress-bar {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transform-origin: left;
-        }
-
-        .dark .skill-progress {
-            background: rgba(51, 65, 85, 0.5);
-        }
-
-        .typing-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1em;
-            background-color: currentColor;
-            margin-left: 2px;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after, .active-nav::after {
-            width: 100%;
-        }
-
-        .floating-icon {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .terminal {
-            font-family: 'Fira Code', monospace;
-            background-color: rgba(15, 23, 42, 0.9);
-            border-radius: 0.5rem;
-            padding: 1rem;
-            color: #a5f3fc;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        .terminal-line {
-            display: block;
-            line-height: 1.5;
-        }
-
-        .terminal-prompt { color: #34d399; }
-        .terminal-command { color: #f8fafc; }
-        .terminal-output { color: #94a3b8; }
-
-        .matrix-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .tech-icon {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .tech-icon:hover {
-            transform: scale(1.2);
-            opacity: 1;
-        }
-
-        .scroll-indicator {
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-20px); }
-            60% { transform: translateY(-10px); }
-        }
-
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0.5rem;
-        }
-
-        .dark .glassmorphism {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(148, 163, 184, 0.5);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
-
-        .code-rain {
-            position: absolute;
-            color: rgba(59, 130, 246, 0.3);
-            font-family: 'Fira Code', monospace;
-            font-size: 14px;
-            text-align: center;
-            white-space: nowrap;
-            user-select: none;
-            pointer-events: none;
-        }
-
-        .dark .code-rain {
-            color: rgba(96, 165, 250, 0.3);
-        }
-
-        #resume-modal {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        #resume-modal > div {
-            transition: transform 0.3s ease;
-        }
-    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Manendra Singh",
+  "url": "https://manusingh2290.github.io/Manendra.dev/",
+  "image": "https://manusingh2290.github.io/Manendra.dev/profile%20picture.jpg",
+  "jobTitle": "Software developer",
+  "description": "Final-year B.Tech CSE student at VIT Vellore building backend-leaning full-stack web apps and machine learning projects.",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "Vellore Institute of Technology" },
+  "knowsAbout": ["Node.js", "Express", "MongoDB", "MySQL", "Socket.IO", "REST APIs", "TensorFlow", "Python"],
+  "sameAs": [
+    "https://github.com/manusingh2290",
+    "https://www.linkedin.com/in/manendrasi/",
+    "https://leetcode.com/u/manendra-singh/"
+  ]
+}
+</script>
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-all duration-300">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-    <div id="code-rain-container" class="fixed top-0 left-0 w-full h-full overflow-hidden z-0 opacity-30"></div>
-    <div id="particles-js" class="fixed top-0 left-0 w-full h-full z-0"></div>
-
-    <nav class="fixed w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-50 shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#home" class="text-xl font-bold gradient-text code-font">Manendra.dev</a>
-
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link active-nav">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-
-            <div class="flex items-center space-x-4">
-                <button id="theme-toggle" aria-label="Toggle Dark Mode"
-                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block"></i>
-                </button>
-
-                <button id="mobile-menu-button" aria-label="Open Mobile Menu"
-                    class="md:hidden p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-slate-900 shadow-md">
-            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
-                <a href="#home" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Home</a>
-                <a href="#about" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">About</a>
-                <a href="#projects" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Projects</a>
-                <a href="#skills" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Skills</a>
-                <a href="#experience"
-                    class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Experience</a>
-                <a href="#contact" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">Contact</a>
-            </div>
-        </div>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="mark" href="#top">Manendra Singh</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-
-    <section id="home" class="min-h-screen flex items-center pt-16 relative overflow-hidden">
-        <div class="container mx-auto px-4 py-16 md:py-0 relative z-10">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <div class="code-font text-sm md:text-base text-slate-600 dark:text-slate-400 mb-2">
-                        <span class="text-green-600 dark:text-green-400">$</span> <span
-                            class="text-blue-600 dark:text-blue-400">function</span> <span>introduceMyself() {</span>
-                    </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                        Hi, I'm <span class="gradient-text">Manendra Singh</span>
-                    </h1>
-                    <div class="text-xl md:text-2xl mb-6 text-slate-700 dark:text-slate-300 flex items-center">
-                        <span class="text-green-600 dark:text-green-400 mr-2">></span>
-                        <span id="typing-text"></span><span class="typing-cursor"></span>
-                    </div>
-                    <p class="text-slate-700 dark:text-slate-300 mb-4">
-                        Backend-focused Software Engineer with experience in building scalable and secure web applications. Skilled in designing RESTful APIs, optimizing database queries, and implementing real-time systems.
-                    </p>
-
-                    <p class="text-slate-700 dark:text-slate-300 mb-6">
-                        Solved 400+ DSA problems and actively work on improving system design and backend performance. Passionate about developing high-performance applications and solving real-world engineering problems.
-                    </p>
-                    
-                    <div class="code-font text-sm md:text-base text-slate-600 dark:text-slate-400 mb-6">
-                        <span>}</span>
-                    </div>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#contact"
-                            class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium rounded-full hover:shadow-lg transition-all">
-                            <i class="fas fa-paper-plane mr-2"></i> Get in Touch
-                        </a>
-                        <button id="view-resume-btn"
-                            class="px-6 py-3 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 font-medium rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 transition-all">
-                            <i class="fas fa-eye mr-2"></i> View Resume
-                        </button>
-
-                    </div>
-                    <div class="flex mt-8 space-x-4">
-                        <a href="https://github.com/manusingh2290" target="_blank" aria-label="GitHub Profile"
-                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/manendrasi/" target="_blank" aria-label="LinkedIn Profile"
-                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://leetcode.com/u/manendra-singh/" target="_blank" aria-label="LeetCode Profile"
-                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
-                            <i class="fas fa-code"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-2/5">
-                    <div class="relative">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-xl opacity-30 animate-pulse">
-                        </div>
-                        <div
-                            class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-xl mx-auto relative z-10">
-                            <!-- Added proper ALT attribute for SEO/Accessibility -->
-                            <img src="profile picture.jpg" alt="Manendra Singh - Software Developer Profile Picture" class="w-full h-full object-cover" />
-                        </div>
-
-                        <div class="absolute -top-10 -left-10 floating-icon" style="animation-delay: 0s;">
-                            <div
-                                class="w-12 h-12 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-lg">
-                                <i class="fab fa-react text-blue-500 text-xl"></i>
-                            </div>
-                        </div>
-                        <div class="absolute top-1/4 -right-10 floating-icon" style="animation-delay: 0.5s;">
-                            <div
-                                class="w-10 h-10 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-lg">
-                                <i class="fab fa-node-js text-green-500 text-lg"></i>
-                            </div>
-                        </div>
-                        <div class="absolute bottom-10 -left-5 floating-icon" style="animation-delay: 1s;">
-                            <div
-                                class="w-8 h-8 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-lg">
-                                <i class="fab fa-js text-yellow-500 text-sm"></i>
-                            </div>
-                        </div>
-                        <div class="absolute -bottom-5 right-1/4 floating-icon" style="animation-delay: 1.5s;">
-                            <div
-                                class="w-9 h-9 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-lg">
-                                <i class="fab fa-html5 text-orange-500 text-base"></i>
-                            </div>
-                        </div>
-                        <div class="absolute top-1/3 -left-12 floating-icon" style="animation-delay: 2s;">
-                            <div
-                                class="w-11 h-11 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-lg">
-                                <i class="fab fa-css3-alt text-blue-400 text-lg"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator hidden md:block">
-                <div class="flex flex-col items-center">
-                    <span class="text-sm text-slate-600 dark:text-slate-400 mb-2">Scroll Down</span>
-                    <svg class="w-6 h-6 text-slate-600 dark:text-slate-400" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-20 relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-            </div>
-
-            <div class="flex flex-col md:flex-row gap-10">
-                <div class="md:w-1/2">
-                    <div class="terminal mb-6">
-                        <span class="terminal-line">
-                            <span class="terminal-prompt">manendra@dev:~$</span>
-                            <span class="terminal-command">cat about_me.json</span>
-                        </span>
-                        <span class="terminal-line terminal-output">
-                            {<br>
-                            &nbsp;&nbsp;"name": "Manendra Singh",<br>
-                            &nbsp;&nbsp;"education": "B.Tech in Computer Science",<br>
-                            &nbsp;&nbsp;"university": "Vellore Institute of Technology",<br>
-                            &nbsp;&nbsp;"year": "Pre-final Year",<br>
-                            &nbsp;&nbsp;"interests": ["Web Development", "Software Engineering", "AI/ML", "System Design"],<br>
-                            &nbsp;&nbsp;"location": "Vellore, India"<br>
-                            }
-                        </span>
-                    </div>
-
-                    <p class="text-slate-700 dark:text-slate-300 mb-4">
-                        Backend-focused Software Engineer experienced in building scalable, secure, and real-time web applications. Skilled in designing RESTful APIs, optimizing database queries, and implementing efficient backend systems.
-                    </p>
-
-                    <p class="text-slate-700 dark:text-slate-300 mb-6">
-                        Solved 400+ Data Structures & Algorithms problems with a strong focus on problem-solving and system design. Passionate about building high-performance applications and solving real-world engineering challenges.
-                    </p>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <p class="font-medium">Name:</p>
-                            <p class="text-slate-600 dark:text-slate-400">Manendra Singh</p>
-                        </div>
-                        <div>
-                            <p class="font-medium">Email:</p>
-                            <p class="text-slate-600 dark:text-slate-400">manendrasingh202005@gmail.com</p>
-                        </div>
-                        <div>
-                            <p class="font-medium">Degree:</p>
-                            <p class="text-slate-600 dark:text-slate-400">B.Tech in CSE</p>
-                        </div>
-                        <div>
-                            <p class="font-medium">Location:</p>
-                            <p class="text-slate-600 dark:text-slate-400">Vellore, India</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="md:w-1/2">
-                    <h3 class="text-2xl font-semibold mb-4">Education</h3>
-
-                    <div class="mb-6 border-l-4 border-blue-500 pl-4">
-                        <h4 class="text-xl font-medium">B.Tech in Computer Science & Engineering</h4>
-                        <p class="text-slate-700 dark:text-slate-300">Vellore Institute of Technology | 2023 - 2027</p>
-                        <p class="text-slate-700 dark:text-slate-300">CGPA: 8.52/10</p>
-                    </div>
-
-                    <div class="mb-6 border-l-4 border-blue-500 pl-4">
-                        <h4 class="text-xl font-medium">Senior Secondary School</h4>
-                        <p class="text-slate-700 dark:text-slate-300">Swami Keshwananda Sr. Sec. School | 2021 - 2022
-                        </p>
-                        <p class="text-slate-700 dark:text-slate-300">Percentage: 91.4</p>
-                    </div>
-
-                    <div class="mb-6 border-l-4 border-blue-500 pl-4">
-                        <h4 class="text-xl font-medium">Secondary School</h4>
-                        <p class="text-slate-700 dark:text-slate-300">Swami Keshwananda Sr. Sec. School | 2019 - 2020
-                        </p>
-                        <p class="text-slate-700 dark:text-slate-300">Percentage: 88.33</p>
-                    </div>
-
-                    <h3 class="text-2xl font-semibold mb-4">Technical Interests</h3>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Backend Development</span>
-                        <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">REST APIs</span>
-                        <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">System Design</span>
-                        <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Scalable Systems</span>
-                        <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Database Optimization</span>
-                        <span class="badge bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">Cloud Computing</span>
-                        <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Machine Learning</span>
-                    </div>
-
-                    <h3 class="text-2xl font-semibold mb-4">What I Do</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
-                            <div
-                                class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-4">
-                                <i class="fas fa-code text-blue-600 dark:text-blue-400"></i>
-                            </div>
-                            <h4 class="text-lg font-medium mb-2">Web Development</h4>
-                            <p class="text-slate-600 dark:text-slate-400">Building responsive and dynamic web
-                                applications using modern frameworks.</p>
-                        </div>
-
-                        <div class="p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
-                            <div
-                                class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center mb-4">
-                                <i class="fas fa-laptop-code text-yellow-600 dark:text-yellow-400"></i>
-                            </div>
-                            <h4 class="text-lg font-medium mb-2">AI & Machine Learning</h4>
-                            <p class="text-slate-600 dark:text-slate-400">
-                                Building intelligent systems using machine learning and deep learning to solve real-world problems.
-                            </p>
-                        </div>
-
-                        <div class="p-4 rounded-lg bg-white dark:bg-slate-800 shadow-md">
-                            <div
-                                class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4">
-                                <i class="fas fa-server text-green-600 dark:text-green-400"></i>
-                            </div>
-                            <h4 class="text-lg font-medium mb-2">Backend Development</h4>
-                            <p class="text-slate-600 dark:text-slate-400">Designing and implementing RESTful APIs and
-                                database solutions.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-900 relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-                <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-                    Here are some of my recent projects that showcase my technical skills and problem-solving abilities.
-                </p>
-            </div>
-
-            <div class="mb-8">
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button class="project-filter-btn active px-4 py-2 rounded-full bg-blue-600 text-white"
-                        data-filter="all">All Projects</button>
-                    <button
-                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-600 hover:text-white transition-colors"
-                        data-filter="frontend">Frontend</button>
-                    <button
-                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-600 hover:text-white transition-colors"
-                        data-filter="fullstack">Full-Stack</button>
-                    <button
-                        class="project-filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-blue-600 hover:text-white transition-colors"
-                        data-filter="aiml">AI/ML</button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Project: SCSMS-->
-                <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="fullstack">
-                    <div class="h-48 bg-gradient-to-r from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-city text-white text-6xl opacity-20"></i>
-                        </div>
-                        <div class="relative z-10 text-center">
-                            <i class="fas fa-city text-white text-4xl mb-2"></i>
-                                <h3 class="text-xl font-bold text-white">
-                                        SCSMS – Smart City Service Management System
-                                </h3>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-                        <p class="text-slate-700 dark:text-slate-300 mb-4">
-                            Built a scalable real-time smart city platform enabling citizens to report issues and administrators to manage tasks efficiently. Reduced issue reporting latency by 40% using Socket.IO and implemented secure role-based access control (RBAC) for data integrity.
-                        </p>
-
-                        <div class="flex flex-wrap mb-4">
-                            <span class="badge bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">HTML & CSS</span>
-                            <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">JavaScript</span>
-                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Node.js</span>
-                            <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Express.js</span>
-                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">MySQL</span>
-                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Socket.IO</span>
-                        </div>
-
-                        <div class="flex justify-between">
-                            <a href="https://github.com/manusingh2290/SCSMS-new" target="_blank"
-                class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
-                                <i class="fab fa-github mr-1"></i> GitHub
-                            </a>
-                            <a href="https://manusingh2290.github.io/SCSMS-new/" target="_blank"
-                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
-                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project - DR -->
-                <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="aiml">
-                    <div class="h-48 bg-gradient-to-r from-red-500 to-pink-600 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-eye text-white text-6xl opacity-20"></i>
-                        </div>
-                        <div class="relative z-10 text-center">
-                            <i class="fas fa-eye text-white text-4xl mb-2"></i>
-                            <h3 class="text-xl font-bold text-white">Diabetic Retinopathy Detection</h3>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-                        <p class="text-slate-700 dark:text-slate-300 mb-4">
-                            An AI-powered deep learning model that detects Diabetic Retinopathy using retinal fundus images.
-                            Built using CNN-based image classification to assist early diagnosis and reduce vision loss risk.
-                        </p>
-
-                        <div class="flex flex-wrap mb-4">
-                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Python</span>
-                            <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">TensorFlow</span>
-                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Keras</span>
-                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">CNN Model</span>
-                        </div>
-
-                        <div class="flex justify-between">
-                            <a href="https://github.com/manusingh2290/Diabetic-Retinopathy" target="_blank" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
-                                <i class="fab fa-github mr-1"></i> GitHub
-                            </a>
-                            <a href="https://diabetic-retinopathy-detector-manendrasingh.streamlit.app/" target="_blank"
-                                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
-                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Stack IT -->
-                <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="fullstack">
-                    <div
-                        class="h-48 bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-comments text-white text-6xl opacity-20"></i>
-                        </div>
-                        <div class="relative z-10 text-center">
-                            <i class="fas fa-comments text-white text-4xl mb-2"></i>
-                            <h3 class="text-xl font-bold text-white">StackIT – Q&A Platform</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-slate-700 dark:text-slate-300 mb-4">
-                            Developed a scalable MERN-based discussion platform with secure authentication and dynamic content ranking. Implemented RESTful APIs and optimized database queries to improve performance and ensure efficient data retrieval.
-                        </p>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">HTML 5 & CSS 3</span>
-                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Node.js</span>
-                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">MongoDB</span>
-                            <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Express</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <a href="https://github.com/manusingh2290/Stack-IT" target="_blank"
-                                class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
-                                <i class="fab fa-github mr-1"></i> GitHub
-                            </a>
-                            <a href="https://stack-it-dgbn.onrender.com/" target="_blank"
-                                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
-                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 1 -->
-                <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="fullstack">
-                    <div
-                        class="h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-newspaper text-white text-6xl opacity-20"></i>
-                        </div>
-                        <div class="relative z-10 text-center">
-                            <i class="fas fa-newspaper text-white text-4xl mb-2"></i>
-                            <h3 class="text-xl font-bold text-white">Blog-Post Website</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-slate-700 dark:text-slate-300 mb-4">
-                            A responsive blog platform with authentication, media posts, category filters, and real-time
-                            content updates.
-                        </p>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">HTML</span>
-                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">CSS</span>
-                            <span class="badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Firebase</span>
-                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">JavaScript</span>
-                            <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Firestore</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <a href="https://github.com/manusingh2290/kn" target="_blank"
-                                class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
-                                <i class="fab fa-github mr-1"></i> GitHub
-                            </a>
-                            <a href="https://manusingh2290.github.io/kn/" target="_blank"
-                                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
-                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="frontend">
-                    <div class="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-tools text-white text-6xl opacity-20"></i>
-                        </div>
-                        <div class="relative z-10 text-center">
-                            <i class="fas fa-tools text-white text-4xl mb-2"></i>
-                            <h3 class="text-xl font-bold text-white">Home Service Platform</h3>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-                        <p class="text-slate-700 dark:text-slate-300 mb-4">
-                            A service provider platform delivering home services like electrician, plumbing, and cleaning directly at the user's doorstep.
-                        </p>
-
-                        <div class="flex flex-wrap mb-4">
-                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">HTML</span>
-                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">CSS 3</span>
-                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">JS</span>
-                        </div>
-
-                        <div class="flex justify-between">
-                            <a href="https://github.com/manusingh2290/HomeServer" target="_blank" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
-                                <i class="fab fa-github mr-1"></i> GitHub
-                            </a>
-                            <a href="https://manusingh2290.github.io/HomeServer/" target="_blank" class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
-                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 5 -->
-                <div class="project-card glassmorphism rounded-xl overflow-hidden shadow-lg" data-category="frontend">
-                    <div class="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-wallet text-white text-6xl opacity-20"></i>
-                        </div>
-                        <div class="relative z-10 text-center">
-                            <i class="fas fa-wallet text-white text-4xl mb-2"></i>
-                            <h3 class="text-xl font-bold text-white">Ledger – Expense Tracker</h3>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-                        <p class="text-slate-700 dark:text-slate-300 mb-4">
-                            A responsive web-based expense tracker that allows users to add, view, filter, and manage expenses.
-                            Includes tracking by Party Name and Date Range, along with Excel export functionality for detailed reporting.
-                        </p>
-
-                        <div class="flex flex-wrap mb-4">
-                            <span class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">HTML</span>
-                            <span class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">CSS</span>
-                            <span class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">JavaScript</span>
-                            <span class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Excel Export</span>
-                        </div>
-
-                        <div class="flex justify-between">
-                            <a href="https://github.com/manusingh2290/ledger" target="_blank"
-                                class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-colors">
-                                <i class="fab fa-github mr-1"></i> GitHub
-                            </a>
-                            <a href="https://manusingh2290.github.io/ledger/" target="_blank"
-                                class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium transition-colors">
-                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-20 relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-                <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-                    Here are the technologies and tools I've worked with and my proficiency level in each.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="glassmorphism p-6 rounded-xl">
-                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
-                        <i class="fas fa-laptop-code text-blue-500 dark:text-blue-400 mr-3"></i>
-                        Frontend Development
-                    </h3>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">JavaScript (ES6+)</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 95%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">HTML5</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">CSS3</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 90%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Tailwind CSS</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glassmorphism p-6 rounded-xl">
-                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
-                        <i class="fas fa-server text-green-500 dark:text-green-400 mr-3"></i>
-                        Backend Development
-                    </h3>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Node.js</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Express.js</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 80%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">MongoDB</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">MySQL</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="glassmorphism p-6 rounded-xl">
-                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
-                        <i class="fas fa-server text-green-500 dark:text-green-400 mr-3"></i>
-                        Machine Learning
-                    </h3>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">TensorFlow</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Scikit-learn</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 80%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">NumPy</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Pandas</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glassmorphism p-6 rounded-xl">
-                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
-                        <i class="fas fa-tools text-purple-500 dark:text-purple-400 mr-3"></i>
-                        Tools & Technologies
-                    </h3>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Git & GitHub</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 95%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">VS Code</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 75%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">AWS (S3, EC2, Lambda)</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 70%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Firebase</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glassmorphism p-6 rounded-xl">
-                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
-                        <i class="fas fa-laptop text-yellow-500 dark:text-yellow-400 mr-3"></i>
-                        Other Skills
-                    </h3>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Python</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 80%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Java</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 75%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">C++</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 85%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">C</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 70%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Problem Solving</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" style="width: 90%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-16">
-                <h3 class="text-2xl font-semibold mb-8 text-center">Technologies I Work With</h3>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fab fa-react text-blue-500 text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fab fa-node-js text-green-500 text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fab fa-js text-yellow-500 text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fab fa-html5 text-orange-500 text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fab fa-css3-alt text-blue-500 text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fab fa-github text-slate-800 dark:text-white text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fab fa-aws text-orange-500 text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fab fa-python text-blue-500 text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fab fa-java text-red-500 text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="fas fa-database text-blue-600 text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="devicon-c-plain colored text-3xl"></i>
-                    </div>
-                    <div class="tech-icon p-4 bg-white dark:bg-slate-800 rounded-full shadow-md hover:shadow-lg transition-all opacity-80">
-                        <i class="devicon-cplusplus-plain colored text-3xl"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="py-20 bg-slate-50 dark:bg-slate-900 relative z-10">
-    <div class="container mx-auto px-4">
-
-        <!-- ===== Section Header ===== -->
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Experience & Certifications</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-            <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-                My professional experience, internships, and certifications in the tech industry.
-            </p>
-        </div>
-
-        <div class="max-w-4xl mx-auto">
-
-            <!-- ================= CERTIFICATIONS ================= -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold mb-6 flex items-center">
-                    <i class="fas fa-certificate text-green-500 dark:text-green-400 mr-3"></i>
-                    Certifications
-                </h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <!-- Certification: IBM -->
-                    <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4">
-                                <i class="fas fa-award text-blue-500 text-xl"></i>
-                            </div>
-                            <h4 class="text-xl font-bold">IBM Certification</h4>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-                            Successfully earned the certification from IBM Cognitive Class.
-                        </p>
-                        <div class="flex justify-between text-sm text-slate-500">
-                            <span>IBM</span>
-                            <span>2026</span>
-                        </div>
-                        <a href="https://courses.ibmcep.cognitiveclass.ai/certificates/741bb7fdd9b6403eb9670245beceb09b"
-                           target="_blank" aria-label="View IBM Certificate"
-                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Certificate
-                        </a>
-                    </div>
-
-                    <!-- Certification: ML & Data Science -->
-                    <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200716222246/Path-219.png"
-                                     alt="GeeksforGeeks Certification Logo" loading="lazy" class="w-12 h-12 rounded-full object-cover" />
-                            </div>
-                            <h4 class="text-xl font-bold">Complete Machine Learning & Data Science</h4>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-                            Successfully completed the Complete Machine Learning & Data Science – Skill Up
-                            program by GeeksforGeeks.
-                        </p>
-                        <div class="flex justify-between text-sm text-slate-500">
-                            <span>GeeksforGeeks</span>
-                            <span>2026</span>
-                        </div>
-                        <a href="Data Science Certificate.pdf" target="_blank" aria-label="View Data Science Certificate"
-                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Certificate
-                        </a>
-                    </div>
-
-                    <!-- Certification: AI Agent Workshop -->
-                    <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                                <img src="https://repository-images.githubusercontent.com/389729275/371ba38b-8a03-4bff-916c-c3fa5396ceda" alt="Salesforce AgentForce Icon" loading="lazy" class="w-12 h-12 rounded-full object-cover">
-                            </div>
-                            <h4 class="text-xl font-bold">AI Agent Workshop (AgentForce)</h4>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-                            Hands-on workshop by GeeksforGeeks × Salesforce on building AI agents using AgentForce.
-                        </p>
-                        <div class="flex justify-between text-sm text-slate-500">
-                            <span>GFG × Salesforce</span>
-                            <span>June 2025</span>
-                        </div>
-                        <a href="https://media.geeksforgeeks.org/auth-certificates/1751999400/a3d656aebeca07531432131db475b652.png"
-                           target="_blank" aria-label="View AgentForce Workshop Certificate"
-                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Certificate
-                        </a>
-                    </div>
-
-                    <!-- Certification: AI Agent Workshop Duplicate? -->
-                    <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                                <img src="https://repository-images.githubusercontent.com/389729275/371ba38b-8a03-4bff-916c-c3fa5396ceda" alt="Salesforce Certification Logo" loading="lazy" class="w-12 h-12 rounded-full object-cover">
-                            </div>
-                            <h4 class="text-xl font-bold">AI Agent Workshop using AgentForce</h4>
-                        </div>
-                            <p class="text-slate-600 dark:text-slate-400 mb-4">
-                                    Participated in a AI Agent Workshop organized by GeeksforGeeks
-                                    and Salesforce. Earned a Certificate of Participation for successfully
-                                    creating an AI Agent using Agentforce.
-                            </p>
-                        <div class="flex justify-between items-center text-sm text-slate-500">
-                            <span>GeeksforGeeks &amp; Salesforce</span>
-                            <span>July 2025</span>
-                        </div>
-                        <a href="https://media.geeksforgeeks.org/certificates/1755860021/e29ac75f1ff0c1280e5f030b6a09f75d.pdf" target="_blank" aria-label="View Second AgentForce Certificate" class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Certificate
-                        </a>
-                    </div>
-
-                    <!-- Certification: Adobe Hackathon -->
-                    <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6f6MuOPF2v6Dmf7KjXLWtuChJpleq0f-sMA&s"
-                                     alt="Adobe Certification Logo" loading="lazy" class="w-12 h-12 rounded-full object-cover" />
-                            </div>
-                            <h4 class="text-xl font-bold">Adobe India Hackathon</h4>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-                            Participated in Adobe India Hackathon (MCQ + Coding Round).
-                        </p>
-                        <div class="flex justify-between text-sm text-slate-500">
-                            <span>Adobe</span>
-                            <span>July 2025</span>
-                        </div>
-                        <a href="https://d2c-cdn-mumbai.s3.ap-south-1.amazonaws.com/lambda-pdfs/certificate-images/b66ee059-8ea4-4bd1-815a-579afa190c2a.pdf"
-                           target="_blank" aria-label="View Adobe Hackathon Certificate"
-                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Certificate
-                        </a>
-                    </div>
-
-                    <!-- Certification: Google Cloud Agentic AI -->
-                    <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4">
-                                <i class="fab fa-google text-green-600 text-xl"></i>
-                            </div>
-                            <h4 class="text-xl font-bold">Google Cloud Agentic AI Day</h4>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-                            Participated in Agentic AI Day powered by Hack2Skill and Google Cloud.
-                        </p>
-                        <div class="flex justify-between text-sm text-slate-500">
-                            <span>Hack2Skill</span>
-                            <span>July 2025</span>
-                        </div>
-                        <a href="https://certificate.hack2skill.com/user/aidayideasubmission/2025H2S06AID-I22623"
-                           target="_blank" aria-label="View Google Cloud Certificate"
-                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Certificate
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ================= BADGES ================= -->
-            <div>
-                <h3 class="text-2xl font-semibold mb-6 flex items-center">
-                    <i class="fas fa-award text-yellow-500 dark:text-yellow-400 mr-3"></i>
-                    Badges
-                </h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <!-- Badge 50 -->
-                    <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
-                        <h4 class="text-xl font-bold mb-2">LeetCode 50 Days Coding Challenge</h4>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-                            Solved DSA problems consistently for 50 days on LeetCode.
-                        </p>
-                        <div class="flex justify-between text-sm text-slate-500">
-                            <span>LeetCode</span>
-                            <span>2025</span>
-                        </div>
-                        <a href="50.png" target="_blank" aria-label="View Leetcode 50 Days Badge"
-                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Badge
-                        </a>
-                    </div>
-
-                    <!-- Badge 100 -->
-                    <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
-                        <h4 class="text-xl font-bold mb-2">LeetCode 100 Days Coding Challenge</h4>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-                            Completed 100 days of consistent problem solving on LeetCode.
-                        </p>
-                        <div class="flex justify-between text-sm text-slate-500">
-                            <span>LeetCode</span>
-                            <span>2025</span>
-                        </div>
-                        <a href="100.png" target="_blank" aria-label="View Leetcode 100 Days Badge"
-                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Badge
-                        </a>
-                    </div>
-
-                    <!-- Badge 200 -->
-                    <div class="glassmorphism p-6 rounded-lg hover:shadow-lg transition-shadow">
-                        <h4 class="text-xl font-bold mb-2">LeetCode 200 Days Coding Challenge</h4>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">
-                            Completed 200 days of consistent problem solving on LeetCode.
-                        </p>
-                        <div class="flex justify-between text-sm text-slate-500">
-                            <span>LeetCode</span>
-                            <span>2025</span>
-                        </div>
-                        <a href="200.png" target="_blank" aria-label="View Leetcode 200 Days Badge"
-                           class="text-sm text-blue-600 hover:text-blue-700 font-medium inline-block mt-2">
-                            <i class="fas fa-external-link-alt mr-1"></i> View Badge
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap">
+      <h1 id="hero-title"><span>Manendra</span> <span>Singh</span></h1>
+      <div class="hero-row grid">
+        <p class="lede">I build the backend-heavy parts of web apps (APIs, databases, live updates) and sometimes train a model to go with them.</p>
+        <p class="note mono">Final year, VIT Vellore.<br>Open to internships and freelance work.</p>
+      </div>
     </div>
-</section>
+  </section>
 
-    <section id="contact" class="py-20 relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-                <p class="mt-4 text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-                    Feel free to reach out for collaborations, internship opportunities, or just to say hello!
-                </p>
-            </div>
-
-            <div class="flex flex-col md:flex-row gap-10">
-                <div class="md:w-1/2">
-                    <div class="glassmorphism p-8 rounded-xl">
-                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
-
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium mb-1">Personal Email</h4>
-                                    <a href="mailto:manendrasingh202005@gmail.com"
-                                        class="text-slate-600 dark:text-slate-400">manendrasingh202005@gmail.com</a>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium mb-1">Secondary Email</h4>
-                                    <a href="mailto:manendra.singh2290@gmail.com"
-                                        class="text-slate-600 dark:text-slate-400">manendra.singh2290@gmail.com</a>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium mb-1">University Email</h4>
-                                    <a href="mailto:manendra.singh2023@vitstudent.ac.in"
-                                        class="text-slate-600 dark:text-slate-400">manendra.singh2023@vitstudent.ac.in</a>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-phone-alt text-yellow-600 dark:text-yellow-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium mb-1">Phone</h4>
-                                    <a href="tel:+917378221449"
-                                        class="text-slate-600 dark:text-slate-400">+91-7378221449</a>
-                                </div>
-                            </div>
-
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-map-marker-alt text-green-600 dark:text-green-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium mb-1">Location</h4>
-                                    <p class="text-slate-600 dark:text-slate-400">Ratangarh, Churu, Rajasthan, India</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-4 shrink-0">
-                                    <i class="fas fa-link text-purple-600 dark:text-purple-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-medium mb-1">Social Media</h4>
-                                    <div class="flex space-x-4 mt-2">
-                                        <a href="https://github.com/manusingh2290" target="_blank" aria-label="GitHub Profile"
-                                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
-                                            <i class="fab fa-github"></i>
-                                        </a>
-                                        <a href="https://www.linkedin.com/in/manendrasi" target="_blank" aria-label="LinkedIn Profile"
-                                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
-                                            <i class="fab fa-linkedin"></i>
-                                        </a>
-                                        <a href="https://leetcode.com/u/manendra-singh/" target="_blank" aria-label="LeetCode Profile"
-                                            class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-xl transition-colors">
-                                            <i class="fas fa-code"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-8">
-                            <h4 class="text-lg font-medium mb-4">Available For</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Internships</span>
-                                <span
-                                    class="badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Freelance
-                                    Projects</span>
-                                <span
-                                    class="badge bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Collaborations</span>
-                                <span
-                                    class="badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Open
-                                    Source</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="md:w-1/2">
-                    <div class="glassmorphism p-8 rounded-xl">
-                        <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
-
-                        <form id="contact-form" class="space-y-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
-                                <input type="text" id="name" name="name"
-                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="Manendra Singh" required>
-                            </div>
-
-                            <div>
-                                <label for="email" class="block text-sm font-medium mb-2">Your Email</label>
-                                <input type="email" id="email" name="email"
-                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="manendrasingh@example.com" required>
-                            </div>
-
-                            <div>
-                                <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
-                                <input type="text" id="subject" name="subject"
-                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="Internship Opportunity" required>
-                            </div>
-
-                            <div>
-                                <label for="message" class="block text-sm font-medium mb-2">Message</label>
-                                <textarea id="message" name="message" rows="5"
-                                    class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    placeholder="Your message here..." required></textarea>
-                            </div>
-
-                            <div>
-                                <button type="submit"
-                                    class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium rounded-lg hover:opacity-90 transition-opacity">
-                                    <i class="fas fa-paper-plane mr-2"></i> Send Message
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-900 text-white py-10 relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <a href="#" onclick="window.location.reload(true); return false;" class="text-2xl font-bold gradient-text code-font cursor-pointer inline-block hover:opacity-80 transition-opacity">Manendra.dev</a>
-                    <p class="text-slate-400 mt-2">Full-Stack Developer & Software Engineer</p>
-                </div>
-
-                <div class="flex space-x-6">
-                    <a href="https://github.com/manusingh2290" target="_blank" aria-label="GitHub Profile"
-                        class="text-slate-400 hover:text-white transition-colors">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/manendrasi/" target="_blank" aria-label="LinkedIn Profile"
-                        class="text-slate-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="https://leetcode.com/u/manendra-singh/" target="_blank" aria-label="LeetCode Profile"
-                        class="text-slate-400 hover:text-white transition-colors">
-                        <i class="fas fa-code text-xl"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <div class="flex space-x-4">
-                    <a href="#home" class="text-slate-400 hover:text-white transition-colors text-sm">Home</a>
-                    <a href="#about" class="text-slate-400 hover:text-white transition-colors text-sm">About</a>
-                    <a href="#projects" class="text-slate-400 hover:text-white transition-colors text-sm">Projects</a>
-                    <a href="#contact" class="text-slate-400 hover:text-white transition-colors text-sm">Contact</a>
-                </div>
-                
-                <p class="text-slate-400 text-sm mb-4 md:mb-0">
-                    &copy; 2025 Manendra Singh. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <button id="back-to-top" aria-label="Back to top"
-        class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg transform transition-transform hover:scale-110 opacity-0 invisible z-50">
-        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </button>
-
-    <!-- HTML for Resume Modal Overlay -->
-    <div id="resume-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity opacity-0">
-        <div class="relative w-11/12 max-w-4xl h-[90vh] bg-white dark:bg-slate-900 rounded-xl shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform">
-            <!-- Modal Header -->
-            <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
-                <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200">Resume</h3>
-                <button id="close-modal" aria-label="Close Resume Modal" class="text-slate-500 hover:text-red-500 transition-colors">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-            </div>
-            <!-- Modal Body (PDF Viewer) -->
-            <div class="flex-1 w-full h-full p-2 bg-slate-100 dark:bg-slate-900">
-                <iframe src="manendra resume.pdf#toolbar=0" class="w-full h-full rounded border-0" title="Resume PDF"></iframe>
-            </div>
-        </div>
+  <section class="section" id="about" aria-labelledby="about-h">
+    <div class="wrap grid">
+      <h2 class="sec-title" id="about-h">About</h2>
+      <div class="prose reveal">
+        <p>I'm a final-year B.Tech CSE student at VIT Vellore with a CGPA of 8.52, and most of what I enjoy sits behind the interface: schemas, queries, and the endpoint that has to behave when two people hit it at once.</p>
+        <p>I started with plain HTML, CSS and JavaScript apps (an expense tracker, a home-services site, a Firebase blog) and moved to Node, Express, MongoDB and MySQL for the bigger ones. SCSMS is the one I'd show first: citizens report city issues, administrators work through them, and Socket.IO pushes every change to both sides.</p>
+        <p>On the machine learning side, I think a prediction without a reason is hard to trust, so my diabetic retinopathy classifier shows a Grad-CAM heatmap next to its grade. I keep a steady problem-solving habit on the side: 450+ problems on LeetCode and 300+ on GeeksforGeeks.</p>
+      </div>
+      <figure class="portrait reveal">
+        <img src="profile%20picture.jpg" alt="Portrait of Manendra Singh" width="320" height="400" loading="lazy" decoding="async">
+      </figure>
+      <dl class="edu reveal">
+        <div><dt class="mono">2023 – 2027</dt><dd><strong>B.Tech, Computer Science and Engineering</strong><br>Vellore Institute of Technology. CGPA 8.52</dd></div>
+        <div><dt class="mono">2022</dt><dd><strong>Class XII</strong><br>Swami Keshwanand Shikshan Sansthan, Sikar. 91.4%</dd></div>
+        <div><dt class="mono">2020</dt><dd><strong>Class X</strong><br>Swami Keshwanand Shikshan Sansthan, Sikar. 88.33%</dd></div>
+      </dl>
     </div>
+  </section>
 
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
+  <section class="section" id="projects" aria-labelledby="projects-h">
+    <div class="wrap">
+      <div class="grid head">
+        <h2 class="sec-title" id="projects-h">Projects</h2>
+        <p class="section-intro">Three I would walk you through first, then the smaller ones.</p>
+      </div>
 
-        themeToggle.addEventListener('click', () => {
-            const html = document.documentElement;
-            const isDark = html.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
+      <article class="case grid reveal" aria-labelledby="scsms-h">
+        <div class="case-main">
+          <p class="idx mono">01</p>
+          <h3 id="scsms-h">SCSMS: Smart City Service Management System</h3>
+          <p class="what">A platform where citizens report problems in their city and administrators work through them, with changes showing up live on both sides.</p>
+          <dl class="facts">
+            <div><dt class="mono">Role</dt><dd>Solo build: API, database and front end</dd></div>
+            <div><dt class="mono">Stack</dt><dd class="mono">Node.js, Express, MySQL, Socket.IO, Leaflet.js, OpenStreetMap</dd></div>
+          </dl>
+          <p class="links"><a href="https://github.com/manusingh2290/SCSMS-new">Source</a><a href="https://manusingh2290.github.io/SCSMS-new/">Live demo</a></p>
+        </div>
+        <div class="case-visual">
+          <figure class="shot" data-file="scsms.webp">
+            <img src="scsms.png" alt="SCSMS interface screenshot" width="1200" height="750" loading="lazy" decoding="async">
+          </figure>
+          <dl class="notes">
+            <div><dt class="mono">Problem</dt><dd>A reported issue has to reach an administrator quickly, and the citizen has to see its status change without refreshing anything.</dd></div>
+            <div><dt class="mono">Decision</dt><dd>Socket.IO pushes new reports and status changes instead of the client polling, and role-based access (citizen or administrator) is enforced on the server rather than hidden in the UI.</dd></div>
+            <!-- TODO: confirm baseline and how the 40% was measured; delete the claim if you cannot reproduce it. -->
+            <div><dt class="mono">Result</dt><dd>40% lower issue-reporting latency after moving to Socket.IO.</dd></div>
+          </dl>
+        </div>
+      </article>
 
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+      <article class="case grid reveal" aria-labelledby="dr-h">
+        <div class="case-main">
+          <p class="idx mono">02</p>
+          <h3 id="dr-h">Diabetic Retinopathy Detection</h3>
+          <p class="what">A web app that grades the severity of diabetic retinopathy from a retinal fundus image.</p>
+          <dl class="facts">
+            <div><dt class="mono">Role</dt><dd>Solo build: model, preprocessing and app</dd></div>
+            <div><dt class="mono">Stack</dt><dd class="mono">Python, TensorFlow/Keras, EfficientNet, ResNet, OpenCV, Grad-CAM, Streamlit</dd></div>
+          </dl>
+          <p class="links"><a href="https://github.com/manusingh2290/Diabetic-Retinopathy">Source</a><a href="https://diabetic-retinopathy-detector-manendrasingh.streamlit.app/">Live demo</a></p>
+        </div>
+        <div class="case-visual">
+          <figure class="shot" data-file="diabetic-retinopathy.webp">
+            <img src="diabetic-retinopathy.png" alt="Diabetic retinopathy detector screenshot" width="1200" height="750" loading="lazy" decoding="async">
+          </figure>
+          <dl class="notes">
+            <div><dt class="mono">Problem</dt><dd>Screening depends on catching the disease early, and a model that returns only a label gives a reviewer nothing to check.</dd></div>
+            <div><dt class="mono">Decision</dt><dd>Every prediction comes with a Grad-CAM heatmap of the regions that drove it, plus a downloadable PDF report, so the output can be questioned instead of just accepted.</dd></div>
+            <!-- TODO: add validation accuracy / kappa and the dataset name here if you want a number. -->
+            <div><dt class="mono">Result</dt><dd>Runs as a public Streamlit app: upload a fundus image, get a severity grade, a heatmap and a PDF.</dd></div>
+          </dl>
+        </div>
+      </article>
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      <article class="case grid reveal" aria-labelledby="stackit-h">
+        <div class="case-main">
+          <p class="idx mono">03</p>
+          <h3 id="stackit-h">StackIT: Q&amp;A platform</h3>
+          <p class="what">A question-and-answer site with accounts, posting and ranked answers, in the spirit of the sites developers actually use.</p>
+          <dl class="facts">
+            <div><dt class="mono">Role</dt><dd>Solo build: REST API, database and front end</dd></div>
+            <div><dt class="mono">Stack</dt><dd class="mono">Node.js, Express, MongoDB, HTML, CSS. Hosted on Render</dd></div>
+          </dl>
+          <p class="links"><a href="https://github.com/manusingh2290/Stack-IT">Source</a><a href="https://stack-it-dgbn.onrender.com/">Live demo</a></p>
+        </div>
+        <div class="case-visual">
+          <figure class="shot" data-file="stackit.webp">
+            <img src="stackit.png" alt="StackIT interface screenshot" width="1200" height="750" loading="lazy" decoding="async">
+          </figure>
+          <dl class="notes">
+            <div><dt class="mono">Problem</dt><dd>A Q&amp;A board is only useful if good answers rise to the top and the question list stays quick as it grows.</dd></div>
+            <div><dt class="mono">Decision</dt><dd>Ranking and filtering run in the database query, and I tuned the queries behind the list pages, so the browser only receives the page it is about to show.</dd></div>
+            <!-- TODO: add a real number here (response time before/after, rows tested) if you have one. -->
+            <div><dt class="mono">Result</dt><dd>Live on Render with sign-up, posting and ranked answers working end to end.</dd></div>
+          </dl>
+        </div>
+      </article>
 
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+      <div class="grid more reveal">
+        <h3 class="more-title">More work</h3>
+        <ul class="more-list">
+          <li>
+            <div><p class="more-name">Blog-Post Website</p><p class="links"><a href="https://github.com/manusingh2290/kn">Source</a><a href="https://manusingh2290.github.io/kn/">Live</a></p></div>
+            <p>Blogging site with sign-in, media posts, category filters and live content updates.</p>
+            <p class="mono">HTML, CSS, JavaScript, Firebase, Firestore</p>
+          </li>
+          <li>
+            <div><p class="more-name">Home Service Platform</p><p class="links"><a href="https://github.com/manusingh2290/HomeServer">Source</a><a href="https://manusingh2290.github.io/HomeServer/">Live</a></p></div>
+            <p>Site for home services such as electrician, plumbing and cleaning.</p>
+            <p class="mono">HTML, CSS, JavaScript</p>
+          </li>
+          <li>
+            <div><p class="more-name">Ledger</p><p class="links"><a href="https://github.com/manusingh2290/ledger">Source</a><a href="https://manusingh2290.github.io/ledger/">Live</a></p></div>
+            <p>Expense tracker with filtering by party name and date range, and Excel export.</p>
+            <p class="mono">HTML, CSS, JavaScript</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        // Resume Modal Logic
-        const viewResumeBtn = document.getElementById('view-resume-btn');
-        const resumeModal = document.getElementById('resume-modal');
-        const closeModalBtn = document.getElementById('close-modal');
+  <section class="section" id="skills" aria-labelledby="skills-h">
+    <div class="wrap grid">
+      <h2 class="sec-title" id="skills-h">Skills</h2>
+      <dl class="skills reveal">
+        <div>
+          <dt class="mono">Languages</dt>
+          <dd><ul><li>Java, C, C++, Python, JavaScript, SQL</li></ul></dd>
+        </div>
+        <div>
+          <dt class="mono">Backend</dt>
+          <dd><ul>
+            <li>Node.js, Express.js, REST APIs <span class="used">SCSMS, StackIT</span></li>
+            <li>MySQL, Socket.IO <span class="used">SCSMS</span></li>
+            <li>MongoDB <span class="used">StackIT</span></li>
+            <li>Firebase, Firestore <span class="used">Blog-Post Website</span></li>
+          </ul></dd>
+        </div>
+        <div>
+          <dt class="mono">Machine learning</dt>
+          <dd><ul>
+            <li>TensorFlow, Keras, OpenCV, Streamlit <span class="used">Diabetic Retinopathy Detection</span></li>
+            <li>scikit-learn, NumPy, Pandas</li>
+          </ul></dd>
+        </div>
+        <div>
+          <dt class="mono">Front end</dt>
+          <dd><ul><li>HTML, CSS, JavaScript, Tailwind CSS <span class="used">Ledger, Home Service Platform</span></li></ul></dd>
+        </div>
+        <div>
+          <dt class="mono">Tools</dt>
+          <dd><ul><li>Git and GitHub, AWS (S3, EC2, Lambda), VS Code</li></ul></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
 
-        const openResumeModal = () => {
-            resumeModal.classList.remove('hidden');
-            resumeModal.classList.add('flex'); // Add flex dynamically so it centers properly
-            
-            setTimeout(() => {
-                resumeModal.classList.remove('opacity-0');
-                resumeModal.querySelector('div').classList.remove('scale-95');
-                resumeModal.querySelector('div').classList.add('scale-100');
-            }, 10);
-            document.body.style.overflow = 'hidden'; 
-        };
+  <div class="band">
+    <div class="wrap grid">
+      <section class="certs reveal" id="certifications" aria-labelledby="certs-h">
+        <h2 class="sec-title" id="certs-h">Certifications</h2>
+        <ul class="rows">
+          <li>
+            <div><p class="row-name">Complete Machine Learning &amp; Data Science (Skill Up)</p><p class="mono">GeeksforGeeks · 2026</p></div>
+            <a href="Data%20Science%20Certificate.pdf">Certificate</a>
+          </li>
+          <li>
+            <div><p class="row-name">IBM Cognitive Class certificate</p><p class="mono">IBM · 2026</p></div>
+            <a href="https://courses.ibmcep.cognitiveclass.ai/certificates/741bb7fdd9b6403eb9670245beceb09b">Certificate</a>
+          </li>
+          <li>
+            <div><p class="row-name">AI Agent Workshop with Agentforce</p><p class="mono">GeeksforGeeks × Salesforce · 2025</p></div>
+            <a href="https://media.geeksforgeeks.org/certificates/1755860021/e29ac75f1ff0c1280e5f030b6a09f75d.pdf">Certificate</a>
+          </li>
+          <li>
+            <div><p class="row-name">Adobe India Hackathon <span class="tag">participation</span></p><p class="mono">Adobe · July 2025 · MCQ and coding round</p></div>
+            <a href="https://d2c-cdn-mumbai.s3.ap-south-1.amazonaws.com/lambda-pdfs/certificate-images/b66ee059-8ea4-4bd1-815a-579afa190c2a.pdf">Certificate</a>
+          </li>
+          <li>
+            <div><p class="row-name">Agentic AI Day <span class="tag">participation</span></p><p class="mono">Hack2Skill × Google Cloud · July 2025</p></div>
+            <a href="https://certificate.hack2skill.com/user/aidayideasubmission/2025H2S06AID-I22623">Certificate</a>
+          </li>
+        </ul>
+      </section>
 
-        const closeResumeModal = () => {
-            resumeModal.classList.add('opacity-0');
-            resumeModal.querySelector('div').classList.remove('scale-100');
-            resumeModal.querySelector('div').classList.add('scale-95');
-            setTimeout(() => {
-                resumeModal.classList.remove('flex');
-                resumeModal.classList.add('hidden');
-                document.body.style.overflow = ''; 
-            }, 300);
-        };
+      <section class="practice reveal" id="practice" aria-labelledby="practice-h">
+        <h2 class="sec-title" id="practice-h">Competitive programming</h2>
+        <p class="tally"><span>450+</span> problems on LeetCode<br><span>300+</span> on GeeksforGeeks</p>
+        <ul class="rows">
+          <li><div><p class="row-name">200 Days Challenge badge</p><p class="mono">LeetCode · 2025</p></div><a href="200.png">View</a></li>
+          <li><div><p class="row-name">100 Days Challenge badge</p><p class="mono">LeetCode · 2025</p></div><a href="100.png">View</a></li>
+          <li><div><p class="row-name">50 Days Challenge badge</p><p class="mono">LeetCode · 2025</p></div><a href="50.png">View</a></li>
+        </ul>
+        <p class="links"><a href="https://leetcode.com/u/manendra-singh/">LeetCode profile</a></p>
+      </section>
+    </div>
+  </div>
 
-        viewResumeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openResumeModal();
-        });
+  <section class="section" id="contact" aria-labelledby="contact-h">
+    <div class="wrap grid">
+      <h2 class="sec-title" id="contact-h">Contact</h2>
+      <div class="contact-body reveal">
+        <p class="contact-lead">Email is the quickest way to reach me.</p>
+        <p><a class="mail" href="mailto:manendrasingh202005@gmail.com">manendrasingh202005@gmail.com</a></p>
+        <ul class="social">
+          <li><a href="https://github.com/manusingh2290">
+            <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/manendrasi/">
+            <svg viewBox="0 0 22 21" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1 7h4v13H1zM3 0.800a2.300 2.300 0 1 1 0 4.600 2.300 2.300 0 0 1 0-4.600zM8 7h3.800v1.800C12.400 7.700 13.800 6.700 15.800 6.700c4 0 4.700 2.600 4.700 6V20h-4v-6.600c0-1.600 0-3.500-2.200-3.500s-2.500 1.700-2.500 3.400V20H8z"/></svg>
+            LinkedIn</a></li>
+          <li><a href="https://leetcode.com/u/manendra-singh/">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M15 4 6 12l9 8" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 15.500h9" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round"/></svg>
+            LeetCode</a></li>
+          <li><a href="manendra%20resume.pdf">Resume (PDF)</a></li>
+        </ul>
+        <p class="mono place">Vellore, India</p>
+      </div>
+    </div>
+  </section>
 
-        closeModalBtn.addEventListener('click', closeResumeModal);
+</main>
 
-        resumeModal.addEventListener('click', (e) => {
-            if (e.target === resumeModal) {
-                closeResumeModal();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !resumeModal.classList.contains('hidden')) {
-                closeResumeModal();
-            }
-        });
-
-        const typingText = document.getElementById('typing-text');
-        const phrases = [
-            'Backend Developer',
-            'Software Engineer',
-            'Node.js Developer',
-            'DSA Problem Solver (400+)',
-            'Full-Stack Developer'
-        ];
-
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingSpeed = 100;
-
-        function typeText() {
-            const currentPhrase = phrases[phraseIndex];
-
-            if (isDeleting) {
-                typingText.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-                typingSpeed = 50;
-            } else {
-                typingText.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                typingSpeed = 100;
-            }
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                typingSpeed = 1000;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typingSpeed = 300;
-            }
-
-            setTimeout(typeText, typingSpeed);
-        }
-
-        setTimeout(typeText, 1000);
-
-        const filterButtons = document.querySelectorAll('.project-filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active', 'bg-blue-600', 'text-white');
-                    btn.classList.add('bg-slate-200', 'dark:bg-slate-700');
-                });
-
-                button.classList.add('active', 'bg-blue-600', 'text-white');
-                button.classList.remove('bg-slate-200', 'dark:bg-slate-700');
-
-                const filter = button.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        const backToTopButton = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.add('opacity-0', 'invisible');
-                backToTopButton.classList.remove('opacity-100', 'visible');
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-
-                if (window.pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active-nav');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active-nav');
-                }
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.utils.toArray('.project-card').forEach(card => {
-                gsap.from(card, {
-                    y: 50,
-                    opacity: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top bottom-=100",
-                        toggleActions: "play none none none"
-                    }
-                });
-            });
-
-            gsap.utils.toArray('.skill-progress-bar').forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = 0;
-
-                gsap.to(bar, {
-                    width: width,
-                    duration: 1.5,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: bar,
-                        start: "top bottom-=100",
-                        toggleActions: "play none none none"
-                    }
-                });
-            });
-
-            gsap.utils.toArray('section h2').forEach(heading => {
-                gsap.from(heading, {
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: heading,
-                        start: "top bottom-=100",
-                        toggleActions: "play none none none"
-                    }
-                });
-            });
-
-            gsap.utils.toArray('.tech-icon').forEach((icon, index) => {
-                gsap.from(icon, {
-                    scale: 0,
-                    opacity: 0,
-                    duration: 0.5,
-                    delay: index * 0.1,
-                    ease: "back.out(1.7)",
-                    scrollTrigger: {
-                        trigger: icon.parentElement,
-                        start: "top bottom-=100",
-                        toggleActions: "play none none none"
-                    }
-                });
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 40,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#3b82f6"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false,
-                        "anim": {
-                            "enable": false,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#3b82f6",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
-        });
-
-        function createCodeRain() {
-            const container = document.getElementById('code-rain-container');
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789<>{}[]()=+-*/|&^%$#@!';
-            const columns = Math.floor(window.innerWidth / 20);
-            const drops = [];
-
-            for (let i = 0; i < columns; i++) {
-                drops[i] = Math.floor(Math.random() * -100);
-            }
-
-            function draw() {
-                container.innerHTML = '';
-
-                for (let i = 0; i < drops.length; i++) {
-                    const codeSpan = document.createElement('span');
-                    codeSpan.className = 'code-rain';
-                    codeSpan.style.left = (i * 20) + 'px';
-                    codeSpan.style.top = (drops[i] * 20) + 'px';
-                    codeSpan.textContent = characters[Math.floor(Math.random() * characters.length)];
-                    container.appendChild(codeSpan);
-
-                    drops[i]++;
-
-                    if (drops[i] * 20 > window.innerHeight && Math.random() > 0.975) {
-                        drops[i] = Math.floor(Math.random() * -100);
-                    }
-                }
-
-                setTimeout(draw, 100);
-            }
-
-            draw();
-        }
-
-        createCodeRain();
-
-        window.addEventListener('resize', () => {
-            createCodeRain();
-        });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            emailjs.init("_1yGajPOlYNgWGKZF");
-
-            document.getElementById("contact-form").addEventListener("submit", function (e) {
-                e.preventDefault();
-                emailjs.sendForm('service_zaxd89i', 'template_i6lbr3n', this)
-                    .then(() => {
-                        alert("✅ Message sent!");
-                        this.reset();
-                    })
-                    .catch((error) => {
-                        alert("❌ Failed to send message.");
-                        console.error("EmailJS error:", error);
-                    });
-            });
-        });
-    </script>
+<footer class="site-footer">
+  <div class="wrap foot">
+    <p>&copy; <span id="year">2026</span> Manendra Singh. All rights reserved.</p>
+    <!-- <p class="mono">Plain HTML, CSS and a little JavaScript. <a href="https://github.com/manusingh2290/Manendra.dev">Source</a></p> -->
+  </div>
+</footer>
 </body>
 </html>
